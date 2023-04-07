@@ -69,10 +69,11 @@ PokeDex React Clone:
 
 ## Running Tests
 
-To run tests, first ensure you install `vitest` into your project.
+To run tests, first ensure you install `vitest` and `TestRenderer` into your project.
 
 ```bash
   npm install vitest
+  npm install react-test-renderer
 ```
 
 Now in your `package.json`  add the following key to your scripts
