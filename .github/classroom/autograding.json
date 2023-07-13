@@ -3,8 +3,8 @@
     {
       "name": "autograder",
       "setup": "",
-      "run": "npm test",
-      "input": "__tests__/Header.test.jsx",
+      "run": "npm test __tests__/Header.test.jsx",
+      "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 2,
