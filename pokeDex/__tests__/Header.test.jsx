@@ -1,7 +1,7 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import TestRenderer from "react-test-renderer";
-import { Header } from "../components/Header";
+import { Header } from "../src/components/Header";
 
 describe("Header.jsx", () => {
   it("will test components in Header.jsx", () => {
