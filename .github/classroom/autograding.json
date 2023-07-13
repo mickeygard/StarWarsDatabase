@@ -2,12 +2,12 @@
   "tests": [
     {
       "name": "autograder",
-      "setup": "cd pokeDex",
+      "setup": "",
       "run": "npm test",
       "input": "__tests__/Header.test.jsx",
       "output": "",
       "comparison": "included",
-      "timeout": 1,
+      "timeout": 2,
       "points": 1
     }
   ]

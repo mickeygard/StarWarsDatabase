@@ -18,10 +18,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18
-        cache-dependency-path: './pokeDex/package-lock.json'
+        cache-dependency-path: 'package-lock.json'
         cache: 'npm'
     - name: Install and run Build dependencies
-      working-directory: pokeDex
       run: |
         npm install
         npm run build
