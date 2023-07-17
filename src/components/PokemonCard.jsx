@@ -8,6 +8,7 @@ export default function PokemonCard(props) {
 
     return (
         <div className={`pokemon-card type-${pokemonData.type}`}>
+            <h3>{pokemonData.name}</h3>
             <img src={pokemonData.imgUrl} />
             <div className="moves-grid">
                 {pokemonData.moves.map((move, index) => (

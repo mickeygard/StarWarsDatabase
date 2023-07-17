@@ -14,3 +14,9 @@ Some things to check for in grading:
 6) pokemon card has specfic format and allows for catching/releasing
 7) cannot catch the same pokemon twice
 8) cannot have more than 6 pokemon simultaneously on team
+
+## Test 0 - Example
+Test the part of the navbar we give for free (there exists a Header component with top level nav and h1 with text POKEDEX)
+
+Test 1:
+navbar exists with all correct sections

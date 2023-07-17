@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Outlet } from 'react-router-dom';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 
 export default function App() {
   const [pokemonTeam, setPokemonTeam] = useState([]);
 
   return (
     <>
-      <Header teamSize={pokemonTeam.length} />
+      <Navbar teamSize={pokemonTeam.length} />
       <Outlet context={[pokemonTeam, setPokemonTeam]} />
     </>
   )

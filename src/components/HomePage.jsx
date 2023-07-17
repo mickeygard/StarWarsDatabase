@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { getPokemonList } from "../utilities/apiCalls";
 
 export default function HomePage() {
 
     const [pokemonList, setPokemonList] = useState([]);
 
     useEffect(() => {
-        const getPokemonList = async () => {
-            const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=30");
+        getPokemonList().then((response) => {
             setPokemonList(response.data.results);
-        };
-
-        getPokemonList();
+        });
     }, []);
 
     return (

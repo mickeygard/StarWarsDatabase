@@ -1,4 +1,3 @@
-import { createBrowserRouter } from "react-router-dom";
 import App from './App.jsx';
 import HomePage from './components/HomePage.jsx';
 import PokemonPage from "./components/PokemonPage.jsx";
@@ -6,7 +5,7 @@ import TeamPage from "./components/TeamPage.jsx";
 import Error404Page from "./components/Error404Page.jsx";
 import NoSuchPokemonPage from "./components/NoSuchPokemonPage.jsx";
 
-const router = createBrowserRouter([
+const routerConfig = [
     {
         path: "/",
         element: <App />,
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
             }
         ],
         errorElement: <Error404Page />
-    },
-]);
+    }
+];
 
-export default router;
+export default routerConfig;

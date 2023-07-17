@@ -9,29 +9,52 @@ nav {
     gap: 40px;
 }
 
+ol li a {
+    text-transform: capitalize;
+}
+
 .main-page-contents {
     margin: 20px;
+}
+
+.main-page-contents h2 {
+    text-transform: capitalize;
 }
 
 .pokemon-card {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     border: 1px solid black;
     border-radius: 8px;
     width: 264px;
     height: 400px;
 }
 
-.moves-grid {
+.pokemon-card h3 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.pokemon-card img {
+    width: 220px;
+    height: 220px;
+}
+
+.pokemon-card .moves-grid {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
-    grid-column-gap: 10px;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: 20px 20px;
+    grid-column-gap: 20px;
     grid-row-gap: 10px;
     text-align: center;
     background-color: white;
     padding: 10px;
+}
+
+.pokemon-card button {
+    width: 80%;
 }
 
 .team-grid {

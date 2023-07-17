@@ -3,7 +3,7 @@
     {
       "name": "autograder",
       "setup": "",
-      "run": "npm test __tests__/Example.test.jsx",
+      "run": "npm run test",
       "input": "",
       "output": "",
       "comparison": "included",

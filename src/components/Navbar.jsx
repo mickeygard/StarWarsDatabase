@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Header(props) {
-    const { teamSize = 0 } = props;
+export default function Navbar(props) {
+    const { teamSize } = props;
 
     const [searchValue, setSearchValue] = useState("");
     const navigate = useNavigate();
@@ -26,6 +26,7 @@ export default function Header(props) {
             <Link to="/">Home</Link>
             <Link to="/team">{`My Team #${teamSize}`}</Link>
             <input
+                type="text"
                 placeholder="search"
                 value={searchValue}
                 onChange={(event) => setSearchValue(event.target.value)}
