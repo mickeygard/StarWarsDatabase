@@ -2,8 +2,8 @@
   "tests": [
     {
       "name": "autograder",
-      "setup": "npm start",
-      "run": "npm run cy:run",
+      "setup": "",
+      "run": "npm start --host & npm run cy:run",
       "input": "",
       "output": "",
       "comparison": "included",
