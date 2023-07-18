@@ -3,11 +3,11 @@
     {
       "name": "autograder",
       "setup": "",
-      "run": "npm run test",
+      "run": "npm run cy:run",
       "input": "",
       "output": "",
       "comparison": "included",
-      "timeout": 2,
+      "timeout": 10,
       "points": 1
     }
   ]

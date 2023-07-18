@@ -1,3 +1,3 @@
 export default function Error404Page() {
-    return <div>404 ROUTE NOT FOUND</div>
+  return <div>404 Pokemon Not Found</div>;
 }

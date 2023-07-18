@@ -1,19 +1,17 @@
 describe("Test 2", () => {
   it("can navigate to Team page, then back to Home page", () => {
-    cy.visit('/');
+    cy.visit("/");
 
-    cy.get("[href='/team']")
-      .click();
+    cy.get("[href='/team']").click();
 
     cy.location().should((location) => {
-      expect(location.pathname).to.eq('/team');
+      expect(location.pathname).to.equal("/team");
     });
 
-    cy.get("[href='/']")
-      .click();
+    cy.get("[href='/']").click();
 
     cy.location().should((location) => {
-      expect(location.pathname).to.eq('/');
+      expect(location.pathname).to.equal("/");
     });
   });
 });

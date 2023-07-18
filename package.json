@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "test": "cypress run",
-    "cypress:open": "cypress open"
+    "start": "vite",
+    "test": "cypress open",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "axios": "^1.4.0",
