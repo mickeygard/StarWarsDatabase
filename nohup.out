@@ -10,3 +10,34 @@ Port 5174 is in use, trying another one...
   ➜  Local:   http://localhost:5175/
   ➜  Network: use --host to expose
   ➜  press h to show help
+
+> pokedex@1.0.0 start
+> vite
+
+
+  VITE v4.4.4  ready in 172 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+
+> pokedex@1.0.0 start
+> vite
+
+Port 5173 is in use, trying another one...
+
+  VITE v4.4.4  ready in 175 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+
+> pokedex@1.0.0 start
+> vite
+
+
+  VITE v4.4.4  ready in 171 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help

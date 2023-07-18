@@ -2,13 +2,13 @@
   "tests": [
     {
       "name": "autograder",
-      "setup": "nohup npm start",
-      "run": "npx cypress run --record --spec 'cypress/e2e/0-example-test.cy.jsx'",
+      "setup": "",
+      "run": "npx cypress run --spec cypress/e2e/0-example-test.cy.jsx",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 0
+      "points": 1
     }
   ]
 }
