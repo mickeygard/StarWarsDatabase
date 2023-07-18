@@ -21,11 +21,11 @@ jobs:
           cache-dependency-path: "package-lock.json"
           cache: "npm"
       - name: Install and run Build dependencies
-        run: |
-          npm install
-          npm start
+        run: npm install
       - name: Cypress.io
         uses: cypress-io/github-action@v5.8.2
+        with:
+          start: npm start
       - name: Autograder
         uses: education/autograding@v1
         continue-on-error: true
