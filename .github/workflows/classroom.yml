@@ -26,8 +26,6 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           start: npm start
-          wait-on: "http://localhost:5173"
-          browser: chrome
       - name: Autograder
         uses: education/autograding@v1
         continue-on-error: true
