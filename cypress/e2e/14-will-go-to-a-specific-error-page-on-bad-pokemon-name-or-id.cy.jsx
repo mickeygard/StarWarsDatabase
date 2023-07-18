@@ -13,7 +13,5 @@ describe("Test 14", () => {
       "have.text",
       "No such pokemon with name or id 'Missingno' exists!"
     );
-
-    cy.get(".doesntexist").should("exist");
   });
 });

@@ -113,7 +113,7 @@
     {
       "name": "test 11",
       "setup": "",
-      "run": "npm run autograder 11-can-add-then-release-pokemon.cy.jsx",
+      "run": "npm run autograder cypress/e2e/11-can-add-then-release-pokemon.cy.jsx",
       "input": "",
       "output": "",
       "comparison": "included",
