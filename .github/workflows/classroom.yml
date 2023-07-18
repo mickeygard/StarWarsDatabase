@@ -22,6 +22,12 @@ jobs:
           cache: "npm"
       - name: Install build dependencies
         run: npm install
+      - name: Cypress
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm start
+          wait-on: "http://localhost:5173"
+          browser: chrome
       - name: Autograder
         uses: education/autograding@v1
         continue-on-error: true

@@ -3,7 +3,7 @@
     {
       "name": "test 0",
       "setup": "",
-      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx && jobs",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
       "input": "",
       "output": "",
       "comparison": "included",
