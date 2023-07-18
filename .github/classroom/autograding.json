@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "autograder",
-      "setup": "",
+      "setup": "npm start",
       "run": "npm run cy:run",
       "input": "",
       "output": "",
