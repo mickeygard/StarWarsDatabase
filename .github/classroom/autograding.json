@@ -1,13 +1,163 @@
 {
   "tests": [
     {
-      "name": "autograder",
+      "name": "test 0",
       "setup": "",
       "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
       "input": "",
       "output": "",
       "comparison": "included",
-      "timeout": 10,
+      "timeout": 4,
+      "points": 0
+    },
+    {
+      "name": "test 1",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/01-navbar-structure.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 2",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/02-navbar-links-functionality.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 3",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/03-home-page-structure.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 4",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 5",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 6",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 7",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 8",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 9",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 10",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 11",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 12",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 13",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "test 14",
+      "setup": "",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 1
+    },
+    {
+      "name": "cleanup",
+      "setup": "",
+      "run": "jobs",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
       "points": 0
     }
   ]
