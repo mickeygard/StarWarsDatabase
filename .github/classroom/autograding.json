@@ -2,18 +2,8 @@
   "tests": [
     {
       "name": "test 0",
-      "setup": "",
+      "setup": "npm start &",
       "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx && jobs",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 4,
-      "points": 0
-    },
-    {
-      "name": "stop server",
-      "setup": "",
-      "run": "fg %1",
       "input": "",
       "output": "",
       "comparison": "included",
