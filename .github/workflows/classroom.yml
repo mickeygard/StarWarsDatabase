@@ -20,6 +20,10 @@ jobs:
           node-version: 18
           cache-dependency-path: "package-lock.json"
           cache: "npm"
+      - name: Install and run Build dependencies
+        run: |
+          npm install
+          npm start
       - name: Cypress.io
         uses: cypress-io/github-action@v5.8.2
       - name: Autograder
