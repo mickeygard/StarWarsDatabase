@@ -22,12 +22,6 @@ jobs:
           cache: "npm"
       - name: Install and run Build dependencies
         run: npm install
-      - name: Cypress.io
-        uses: cypress-io/github-action@v5.8.2
-        with:
-          start: npm start
-        continue-on-error: true
-
       - name: Autograder
         uses: education/autograding@v1
         continue-on-error: true

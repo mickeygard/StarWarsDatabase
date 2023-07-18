@@ -3,7 +3,7 @@
     {
       "name": "autograder",
       "setup": "",
-      "run": "npm start --host & npm run cy:run",
+      "run": "npm start & npm run cy:run",
       "input": "",
       "output": "",
       "comparison": "included",
