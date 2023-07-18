@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --port 5173",
+    "start": "vite",
     "test": "cypress open",
     "autograder": "npx cypress run --spec"
   },

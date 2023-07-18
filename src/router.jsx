@@ -15,20 +15,7 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
-      {
-        path: "pokemon/:pokemonNameOrId",
-        element: <PokemonPage />,
-      },
-      {
-        path: "team",
-        element: <TeamPage />,
-      },
-      {
-        path: "noSuchPokemonPage/:pokemonNameOrId",
-        element: <NoSuchPokemonPage />,
-      },
     ],
-    errorElement: <Error404Page />,
   },
 ]);
 
