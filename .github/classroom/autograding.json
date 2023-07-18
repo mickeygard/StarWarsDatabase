@@ -3,7 +3,7 @@
     {
       "name": "test 0",
       "setup": "",
-      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx && jobs",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -149,16 +149,6 @@
       "comparison": "included",
       "timeout": 4,
       "points": 1
-    },
-    {
-      "name": "cleanup",
-      "setup": "",
-      "run": "jobs",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 4,
-      "points": 0
     }
   ]
 }
