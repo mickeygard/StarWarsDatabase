@@ -9,6 +9,16 @@
       "comparison": "included",
       "timeout": 4,
       "points": 0
+    },
+    {
+      "name": "stop server",
+      "setup": "",
+      "run": "kill -STOP %1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 4,
+      "points": 0
     }
   ]
 }
