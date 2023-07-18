@@ -21,9 +21,7 @@ jobs:
           cache-dependency-path: "package-lock.json"
           cache: "npm"
       - name: Install build dependencies
-        run: |
-          npm install
-          nohup npm start
+        run: npm install
       - name: Autograder
         uses: education/autograding@v1
         continue-on-error: true

@@ -3,12 +3,12 @@
     {
       "name": "autograder",
       "setup": "",
-      "run": "npx cypress run --spec cypress/e2e/0-example-test.cy.jsx",
+      "run": "npm run autograder cypress/e2e/0-example-test.cy.jsx",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": 1
+      "points": 0
     }
   ]
 }

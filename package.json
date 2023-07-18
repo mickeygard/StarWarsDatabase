@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "start": "vite --port 5173",
     "test": "cypress open",
-    "cy:run": "cypress run"
+    "autograder": "npm start & npx cypress run --spec"
   },
   "dependencies": {
     "axios": "^1.4.0",
