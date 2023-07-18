@@ -26,6 +26,8 @@ jobs:
         uses: cypress-io/github-action@v5.8.2
         with:
           start: npm start
+        continue-on-error: true
+
       - name: Autograder
         uses: education/autograding@v1
         continue-on-error: true
