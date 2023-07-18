@@ -1,1 +1,2 @@
-need to update README
+- need to update README to specify flow
+- test it out by creating a github classroom assignment
