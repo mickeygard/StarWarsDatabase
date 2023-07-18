@@ -23,7 +23,7 @@ jobs:
       - name: Install build dependencies
         run: npm install
       - name: Cypress
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v5.8.2
         with:
           start: npm start
         continue-on-error: true
