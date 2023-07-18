@@ -13,7 +13,7 @@
     {
       "name": "stop server",
       "setup": "",
-      "run": "kill -STOP %1",
+      "run": "fg %1",
       "input": "",
       "output": "",
       "comparison": "included",
