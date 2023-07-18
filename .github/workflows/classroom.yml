@@ -23,7 +23,7 @@ jobs:
       - name: Install build dependencies
         run: |
           npm install
-          nphup npm start
+          nohup npm start
       - name: Autograder
         uses: education/autograding@v1
         continue-on-error: true
