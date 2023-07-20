@@ -6,6 +6,7 @@
   "scripts": {
     "start": "vite",
     "test": "cypress open",
+    "build": "vite build",
     "autograder": "npx cypress run --spec"
   },
   "dependencies": {

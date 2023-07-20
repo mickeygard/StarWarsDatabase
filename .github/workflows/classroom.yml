@@ -20,8 +20,10 @@ jobs:
           node-version: 18
           cache-dependency-path: "package-lock.json"
           cache: "npm"
-      - name: Install build dependencies
-        run: npm install
+      - name: Install build dependencies and run build
+        run: |
+          npm install
+          npm run build
       - name: Cypress
         uses: cypress-io/github-action@v5.8.2
         with:
