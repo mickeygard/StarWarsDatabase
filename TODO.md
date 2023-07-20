@@ -1,2 +1,1 @@
-- need to update README to specify flow
-- test it out by creating a github classroom assignment
+- Need to rerecord Francisco's walkthrough video to reflect the current state of the app

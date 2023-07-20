@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "test": "cypress open",
+    "dev": "vite",
     "build": "vite build",
-    "autograder": "npx cypress run --spec"
+    "cy:open": "cypress open",
+    "cy:run": "npx cypress run --spec"
   },
   "dependencies": {
     "axios": "^1.4.0",

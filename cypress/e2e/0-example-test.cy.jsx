@@ -7,13 +7,3 @@ describe("Test 0", () => {
     cy.get("nav > h1").should("have.text", "POKEDEX");
   });
 });
-
-// // unpack children from root element
-// const [h1] = navbar.children;
-
-// // expect root element <nav>
-// expect(navbar.type).toBe("nav");
-
-// // expect first child: <h1>POKEDEX</h1>
-// expect(h1.type).toBe("h1");
-// expect(h1.children[0]).toBe("POKEDEX");
