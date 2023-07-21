@@ -2,17 +2,13 @@
 
 ## Summary
 
-In this project, we will create a PokeDex app using:
-
-- `react`
-- `react-router-dom`
-- `axios`
+In this project, we will create a PokeDex app using React.
 
 The scaffolding for the app has been bootsrapped already for you using `vite`.
 
-The backend api you will be making requests to is [PokeAPI](https://pokeapi.co/)
+The backend api you will be making requests to is [PokeAPI](https://pokeapi.co/).
 
-The autograded tests for the app were written using `cypress`
+The autograded tests for the app were written using `cypress`.
 
 ## Important Grading Information
 
@@ -23,35 +19,47 @@ The autograded tests for the app were written using `cypress`
 
 - This test is fully open notes and open Google, but is not to be completed with the help of other students/individuals
 
-## Setup / Scaffolding
+## Usage
 
-Once cloned, install dependencies with
+Once cloned, install dependencies with:
 
 ```sh
 npm install
 ```
 
-All of the necessary dependencies have already been included in `package.json`.
-
-This project is a pre-created `vite` project and should work like one.
-
-We have provided some basic scaffolding already, so `main.jsx` is already linked to the router object exported from `router.jsx`. In `router.jsx` we have set up the basic config for a react-router `BrowserRouter` that renders `<App />` on `/` and has a single child for this route matching the index case that renders `HomePage />`. Both of these components (as well as `<Navbar />`) have been minimally completed.
-
-Also css classes have been pre-provided for you in `index.css`, which is already included in your project. Feel free to modify this file but note that the tests still expect certain class names to appear, so be mindful of that if you plan to make changes.
-
-## Testing Flow
-
-All of the automated tests for this assessment are located within the `cypress/e2e` folder and represent the 14 individual test we want you to pass.
-
-In order to run these tests, you must first have the app simultaneously being served on a seperate terminal window.
+You can run your app in watch mode with:
 
 ```sh
 npm run dev
 ```
 
-Then, running `npm run cy:open` will run Cypress's visual test runner so you can run the tests against your app.
+You can also see an example of the finished app by running:
 
-> NOTE: `cypress.config.js` sets up some Cypress configs, including the asumption that `vite` is serving up your app at `http://localhost:5173`. This is the default for `vite`, but if for whatever reason you have `vite` serving to a different port, you can modify the section in `cypress.config.js` named `baseUrl`.
+```sh
+npm run preview
+```
+
+> NOTE: the files needed for this command are located in the `dist` folder. These are post-build minified files so they won't be very useful for you to read but do not delete this folder or else the preview will stop working.
+
+## Setup / Scaffolding
+
+All of the necessary dependencies have already been included in `package.json`.
+
+This project was already bootstrapped with `vite`. All the changes you need to make will occur in the `src` folder.
+
+We have provided some basic scaffolding already, so `src/main.jsx` is already linked to the router object exported from `src/router.jsx`. In `src/router.jsx` we have set up the basic config for a React Router `BrowserRouter` that renders `<App />` on `/` and has a single child for this route matching the index case that renders `<HomePage />`. Both of these components (as well as `<Navbar />`) have been minimally implemented in the `src/components` folder.
+
+Some css classes have been pre-provided for you in `src/index.css`, which is already included in your project. Feel free to modify this file but note that the tests will identify certain elements by their class names, so be mindful of that if you plan to make changes.
+
+## Testing Flow
+
+All of the automated tests for this assessment are located within the `cypress/e2e` folder and represent the 14 individual test we want you to pass.
+
+In order to run these tests, you must first have the app being served on using `npm run dev`.
+
+Then, in a seperate terminal window, simultaneously run `npm run cy:open` which will run Cypress's visual test runner so you can run the tests against your app.
+
+> NOTE: `cypress.config.js` sets up some Cypress config options, including the asumption that `vite` is serving up your app at `http://localhost:5173`. This is the default for `vite`, but if for whatever reason you have `vite` serving to a different port, you can modify the section in `cypress.config.js` named `baseUrl`.
 
 the first test, `0-example-test.cy.jsx` should pass successfully without having to add anything new to the `src` folder.
 
@@ -119,7 +127,9 @@ Functionality we expect your app to have include:
 
 ## Tests
 
-The tests are designed to confirm the structure and functionality of your app.
+The tests are designed to confirm the structure and functionality of your app, and should be used as a guide as to what to build next.
+
+> NOTE: the tests are testing the output HTML React generates, not the React components themselves. This means you can implement the app in React as desired, you just need to ensure the output and functionality is correct, as per the test assertions.
 
 There are 14 tests total, which can be directly read in the `cypress/e2e` folder. **_Do not modify the tests or it will count as cheating_**. Each test represents a specific ask for what your app can do, and you can read the tests to understand what they are testing for. We will summarize the tests here as well.
 
@@ -141,16 +151,30 @@ Test 1 ensures your Navbar is valid, meaning it will:
 - ensure there is a first link `Home` linking to `/`
 - ensure there is a second link `My Team #0` linking to `/team`
 - ensure there is an input with placeholder value 'search'
-- ensure there is a button with text "Button"
+- ensure there is a button with text "Search"
 
-We are drawing out the desired output explicitly here but we expect you to read the tests for the minute details of the rest.
+This means the HTML output at `/` would look something like:
+
+```html
+<nav>
+  <h1>POKEDEX</h1>
+  <a href="/">Home</a>
+  <a href="/team">My Team #0</a>
+  <input type="text" placeholder="search" />
+  <button>Search</button>
+</nav>
+```
+
+> NOTE: This is just the HTML output, the React you write might look different (are you writing raw `<a>` tags or generating them using a specific component from react-router?)
+
+I drew out the desired output explicitly here but for the rest of the tests we expect you to read the tests directly for the minute details of what is expected.
 
 ## Test 2 - Navbar Links
 
 Test 2 will:
 
 - navigate to `/`
-- click the team link and expect to render a page at `/team`
+- click the team link and expect it to render a page at `/team`
 - then click the home link, and expect to return to `/`
 
 ## Test 3 - Home Page Structure
@@ -200,3 +224,23 @@ Test 13 will visit a non-existent page and expect an Error404Page to render. Thi
 ## Test 14 - Bad Pokemon Input
 
 Test 14 will search for a non-existent Pokemon and expect a unique page to be rendered in response, with awareness of the bad search input. This page should still include the Navbar.
+
+## Suggested Order to Implement
+
+This is just a suggestion but one order to tackle the tasks are as follows:
+
+1. Implement Navbar fully (test 1)
+
+2. Implement the Home Page so that it renders along with the Navbar on `/` and fetches the Pokemon list from PokeAPI (test 3)
+
+3. Implement stubs for the Pokemon Page and the Team Page, and set up the routes to these pages correctly. Make sure the Team Page renders the right content when no pokemon have been caught yet (test 2, test 4, test 7)
+
+4. Implement the 404 page on bad routes (test 13)
+
+5. Implement the Pokemon Page and Pokemon Card sub-component, including the correct background color (test 5, test 6)
+
+6. Ensure you can catch a single pokemon and integrate it with the Team Page (test 8)
+
+7. Ensure all aspects of catching/releasing pokemon works as expected (test 9, test 10, test 11)
+
+8. Implement the search bar functionality and redirecting to a unique Pokemon Error Page if given bad input (test 12, 14)

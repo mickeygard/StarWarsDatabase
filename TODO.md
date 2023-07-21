@@ -1,1 +1,0 @@
-- Need to rerecord Francisco's walkthrough video to reflect the current state of the app

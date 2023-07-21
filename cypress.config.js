@@ -6,6 +6,6 @@ export default defineConfig({
     supportFile: false,
   },
   viewportWidth: 1024,
-  viewportHeighçt: 768,
+  viewportHeight: 768,
   video: false,
 });
