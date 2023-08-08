@@ -4,6 +4,6 @@ describe("Test 13", () => {
 
     cy.get("nav").should("not.exist");
 
-    cy.get("#root > div").should("have.text", "404 Pokemon Not Found");
+    cy.get("#root div").should("have.text", "404 Pokemon Not Found");
   });
 });

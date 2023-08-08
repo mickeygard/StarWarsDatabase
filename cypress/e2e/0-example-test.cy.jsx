@@ -4,6 +4,6 @@ describe("Test 0", () => {
 
     cy.get("nav").should("exist");
 
-    cy.get("nav > h1").should("have.text", "POKEDEX");
+    cy.get("nav h1").should("have.text", "POKEDEX");
   });
 });

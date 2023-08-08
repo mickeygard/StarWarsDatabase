@@ -5,16 +5,16 @@ describe("Test 10", () => {
     // add the first six pokemon
     for (let index = 0; index < 6; index++) {
       cy.wait(1000);
-      cy.get("ol > li > a").eq(index).click();
+      cy.get("ol li a").eq(index).click();
       cy.wait(1000);
-      cy.get(".pokemon-card > button").click();
+      cy.get(".pokemon-card button").click();
       cy.get("[href='/']").click();
     }
 
     // navigate to 7-th link (0-index = 6)
-    cy.get("ol > li > a").eq(6).click();
+    cy.get("ol li a").eq(6).click();
     cy.wait(1000);
-    cy.get(".pokemon-card > button").should("have.attr", "disabled");
+    cy.get(".pokemon-card button").should("have.attr", "disabled");
 
     cy.get("[href='/team']").should("have.text", "My Team #6");
 
