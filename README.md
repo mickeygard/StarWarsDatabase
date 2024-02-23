@@ -1,4 +1,4 @@
-# Assessment 4 : React.js
+# React.js Assessment
 
 ## Summary
 
