@@ -207,7 +207,7 @@ Test 9 ensures you cannot catch the same Pokemon twice, instead that Pokemon is 
 
 ## Test 10 - Can't Catch More Than Six
 
-Test 10 ensure no more than 10 pokemon can be caught
+Test 10 ensure no more than 6 pokemon can be caught
 
 ## Test 11 - Can Add Then Release
 
