@@ -8,7 +8,7 @@ function TeamPage() {
     <>
      <App/>
      <MyNavBar/>
-      <div>TeamPage</div>
+      <h1>TeamPage</h1>
     </>
   )
 }

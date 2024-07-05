@@ -18,7 +18,7 @@ function HomePage() {
 };
 
 
-function getPokemon() {
+  function getPokemon() {
   const [pokemon, setPokemon] = useState({})
   const { id } = useParams()
   console.log(id)
@@ -27,7 +27,7 @@ function getPokemon() {
           const response = await axios.get(`https://pokeapi.co/api/v2/`)
           console.log(response.data)
           setPokemon ([...pokemon, ...response.data.results]);
-      }
+        }
       getPokemon()
   },[id])
 
@@ -52,13 +52,8 @@ return (
   </>
  )
 };
+
 // export default Pokemon
-
-
-
-
-
-
 
 // function Pokemon() {
 //   const [pokemon, setPokemon] = useState([])
@@ -68,8 +63,6 @@ return (
 //     const response = await axios.get(
 //       'https://pokeapi.co/api/v2/{endpoint}/'
 //     );
-
-        
 
 //   getPokemon();
 

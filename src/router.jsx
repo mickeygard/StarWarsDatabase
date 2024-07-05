@@ -11,31 +11,31 @@ import MissingPokemonPage from "./components/MissingPokemonPage.jsx"
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App/>,
+    element: <App />,
     children: [
       {
         index: true,
-        element: <HomePage/>
+        element: <HomePage />
       },
       {
-        path: 'pokemon/',
-        element: <PokemonPage/>
+        path: 'pokemon',
+        element: <PokemonPage />
       },
       {
-        path: 'pokemoncard/',
-        element: <PokemonCard/>
+        path: 'pokemoncard',
+        element: <PokemonCard />
       },
       {
         path: 'team',
-        element: <TeamPage/>
+        element: <TeamPage />
       },
       {
-        path: 'missingpokemon/',
-        element: <MissingPokemonPage/>
+        path: 'missingpokemon',
+        element: <MissingPokemonPage />
       },
       {
-        path: 'error404/',
-        element: <Error404Page/>
+        path: 'error404',
+        element: <Error404Page />
       },
     ],
   },
