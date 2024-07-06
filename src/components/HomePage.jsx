@@ -1,74 +1,139 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from "react-router-dom";
-import App from '../App'
-import MyNavBar from './Navbar'
+import { Container, Row } from 'react-bootstrap';
 
+const HomePage = () => {
+  const [pokemon, setPokemon] = useState([]);
+  const [showPokemon, setShowPokemon] = useState(false);
 
-function HomePage() {
+  useEffect(() => {
+    console.log('useEffect is running'); // Confirm useEffect is running
+
+    const getPokemon = async () => {
+      try {
+        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20');
+        console.log('API response:', response.data.results); // Debug log
+        setPokemon(response.data.results);
+      } catch (error) {
+        console.error('Error fetching Pokémon data:', error);
+      }
+    };
+
+    getPokemon();
+  }, []);
+
   return (
-  <>
-  <App/>
-  <MyNavBar/>
-    <div className="home-page-contents">
+    <div>
+      <h2>Home</h2>
+      <button onClick={() => setShowPokemon(!showPokemon)}>
+        {showPokemon ? 'Hide Pokémon' : 'Show Pokémon'}
+      </button>
+      {showPokemon && (
+        <div>
+          <h2>Pokemon</h2>
+          <Container>
+            <Row>
+              {pokemon.length ? (
+                pokemon.map((data, i) => <div key={i}>{data.name}</div>)
+              ) : (
+                <div>No Pokémon found</div>
+              )}
+            </Row>
+          </Container>
+        </div>
+      )}
     </div>
-    <h2>Home</h2>
-  </> 
- )
+  );
 };
 
+export default HomePage;
 
-  function getPokemon() {
-  const [pokemon, setPokemon] = useState({})
-  const { id } = useParams()
-  console.log(id)
-  useEffect(()=>{
-      const getPokemon = async () => {
-          const response = await axios.get(`https://pokeapi.co/api/v2/`)
-          console.log(response.data)
-          setPokemon ([...pokemon, ...response.data.results]);
-        }
-      getPokemon()
-  },[id])
 
-console.log('pokemon is', pokemon)
 
-if (pokemon.id === null){
-  return <h2>Loading</h2>
-}
-return (
-  <>
-  <div className="flex justify-center items-center min-h-screen">
-      <img src={pokemon.image} alt="image" />
-      <h1>{pokemon.name}</h1>
-      <div>{pokemon.is_main_series}</div>
-      <div>{pokemon.generation}</div>
-      <div>{pokemon.names}</div>
-      <div>{pokemon.effect_entries}</div>
-      <div>{pokemon.effect_changes}</div>
-      <div>{pokemon.flavor_text_entries}</div>
-      <div>{pokemon.type}</div>
-  </div>
-  </>
- )
-};
 
-// export default Pokemon
 
-// function Pokemon() {
-//   const [pokemon, setPokemon] = useState([])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import { Container, Row } from 'react-bootstrap';
+// import App from '../App';
+// import MyNavBar from './Navbar';
+// import PokemonCard from './PokemonCard';
+
+// const HomePage = () => {
+//   const [pokemon, setPokemon] = useState([]);
+//   const [showPokemon, setShowPokemon] = useState(false);
 
 //   useEffect(() => {
+//     console.log('useEffect is running'); // Confirm useEffect is running
 //     const getPokemon = async () => {
-//     const response = await axios.get(
-//       'https://pokeapi.co/api/v2/{endpoint}/'
-//     );
+//       try {
+//         const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=30');
+//         console.log('API response:', response.data.results); // Debug log
+//         setPokemon(response.data.results);
+//       } catch (error) {
+//         console.error('Error fetching Pokémon data:', error);
+//       }
+//     };
 
-//   getPokemon();
+//     getPokemon();
+//   }, []);
 
-//     }, []);
-//   };
+//   return (
+//     <>
+//       <App />
+//       <MyNavBar />
+//       <div className="home-page-contents">
+//         <h2>Home</h2>
+//         <ol>
+//           <li>htre</li>
+//         </ol>
+//         <button onClick={() => setShowPokemon(!showPokemon)}>
+//           {showPokemon ? 'Hide Pokémon' : 'Show Pokémon'}
+//         </button>
+//         {showPokemon && (
+//           <>
+//             <h2>Pokemon</h2>
+//             <Container>
+//               <Row>
+//                 {pokemon.length ? (
+//                   pokemon.map((data, i) => <PokemonCard key={i} data={data} />)
+//                 ) : (
+//                   <div>No Pokémon found</div>
+//                 )}
+//               </Row>
+//             </Container>
+//           </>
+//         )}
+//       </div>
+//     </>
+//   );
+// };
 
-//   console.log(pokemon);
-
-export default HomePage()
+// export default HomePage;

@@ -8,6 +8,7 @@ function PokemonPage() {
    <App/>
    <MyNavBar/>
     <div>PokemonPage</div>
+    
   </>
   )
 }

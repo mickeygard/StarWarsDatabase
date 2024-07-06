@@ -8,11 +8,11 @@ function MyNavBar() {
   return (
 <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        {/* <Navbar.Brand as={Link} to='/'>POKEDEX</Navbar.Brand> */}
+        {/* <Navbar.Brand as={Link} to='/'>Home</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto"> 
-            <h1>POKEDEX</h1>
+            <br></br><h1>POKEDEX</h1><br></br>
             <Nav.Link as={Link} to='/'>Home</Nav.Link>
             <Nav.Link as={Link} to='/team'>My Team #0</Nav.Link>
             <form className="navbar-form navbar-left" action="/action_page.php">
