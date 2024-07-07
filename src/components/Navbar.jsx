@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Form, FormControl, Button } from 'react-bootstrap';
+import { TeamContext } from './TeamContext';
 
 
 function MyNavBar() {
+  const { team } = useContext(TeamContext);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ function MyNavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <h1>POKEDEX</h1>
         <Nav.Link as={Link} to='/'>Home</Nav.Link>
-        <Nav.Link as={Link} to='/team'>My Team #0</Nav.Link>
+        <Nav.Link as={Link} to='/team'>My Team {`#${team.length}`}</Nav.Link>
           <Form inline="true" onSubmit={handleSearch} className="ml-auto">
             <FormControl
               type="text"
@@ -46,7 +46,7 @@ function MyNavBar() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <Button type="submit" variant="outline-success" id= "search-button">Search</Button>
+              <Button type="submit" variant="outline-success" id="search-button">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

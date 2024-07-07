@@ -1,13 +1,25 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import { TeamContext } from './TeamContext';
 
 
 function PokemonCard({ data }) {
     const navigate = useNavigate()
-    const navigateToPokemonPage = () => navigate(`./PokemonPage/${data.id}`)
-    console.log(data);
+    const { team, addToTeam, removeFromTeam } =useContext(TeamContext);
+
+    const isInTeam = team.some((p) => p.name === data.name);
+
+    const handleTeamButtonClick = () => {
+      if (isInTeam) {
+        removeFromTeam(data);
+      } else {
+        addToTeam(data);
+      }
+    };
+    const navigateToPokemonPage = () => navigate(`./PokemonPage/${data.name}`)
+    
     const getPokemonTypeClass = (type) => {
       switch (type) {
         case 'normal': return 'bg-color-normal';
@@ -37,11 +49,14 @@ function PokemonCard({ data }) {
             <Card.Body>
               <Card.Title>{data.name}</Card.Title>
               <Link to={`/pokemon/${data.name}`}>
-                <button>Capture</button>
+                <Button variant="primary">View Details</Button>
               </Link>
+              <Button variant={isInTeam ? "danger" : "success" } onClick={handleTeamButtonClick}>
+                {isInTeam ? "Release" : "Capture"}  
+              </Button>
             </Card.Body>
         </Card>
       );
-    }
+    };
 
 export default PokemonCard
