@@ -1,24 +1,28 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useContext } from 'react'
+// import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { TeamContext } from './TeamContext';
 
 
 function PokemonCard({ data }) {
-    const navigate = useNavigate()
-    const { team, addToTeam, removeFromTeam } =useContext(TeamContext);
+    // const navigate = useNavigate()
+    const { team, addToTeam, removeFromTeam } = useContext(TeamContext);
+
+    console.log('Team:', team); // Debugging
+    console.log('Data:', data); // Debugging
 
     const isInTeam = team.some((p) => p.name === data.name);
 
     const handleTeamButtonClick = () => {
+      console.log('Button clicked'); // Debugging
       if (isInTeam) {
         removeFromTeam(data);
       } else {
         addToTeam(data);
       }
     };
-    const navigateToPokemonPage = () => navigate(`./PokemonPage/${data.name}`)
+    // const navigateToPokemonPage = () => navigate(`./PokemonPage/${data.name}`)
     
     const getPokemonTypeClass = (type) => {
       switch (type) {
@@ -45,15 +49,20 @@ function PokemonCard({ data }) {
     };
     return (
         <Card className={`pokemon-card ${getPokemonTypeClass(data.type)}`}>
-            <Card.Img variant="top" src={data.image} />
+            <img src= {data.sprites.front_default} alt={data.name} />
             <Card.Body>
-              <Card.Title>{data.name}</Card.Title>
-              <Link to={`/pokemon/${data.name}`}>
+              <h3>{data.name}</h3>
+              <div className="moves">
+                    {data.moves.slice(0, 4).map((move, index) => (
+                        <div key={index}>{move.move.name}</div>
+                    ))}
+              </div>
+              {/* <Link to={`/pokemon/${data.name}`}>
                 <Button variant="primary">View Details</Button>
-              </Link>
-              <Button variant={isInTeam ? "danger" : "success" } onClick={handleTeamButtonClick}>
-                {isInTeam ? "Release" : "Capture"}  
-              </Button>
+              </Link> */}
+              <button variant={isInTeam ? "danger" : "success" } onClick={handleTeamButtonClick}>
+                {isInTeam ? "Release" : "Catch"}  
+              </button>
             </Card.Body>
         </Card>
       );

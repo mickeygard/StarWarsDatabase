@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import PokemonCard from './PokemonCard';
 
 function PokemonPage() {
   const { name } = useParams();
@@ -28,18 +29,26 @@ function PokemonPage() {
     <br></br>
     <h2>{pokemon.name}</h2>
     <br></br>
-    <div className={`pokemon-card ${getPokemonTypeClass(pokemon.types[0].type.name)}`}>
-      <h3>{pokemon.name}</h3>
-      <img src= {pokemon.sprites.front_default} alt={pokemon.name} />
-      <div className= "moves">
-        {pokemon.moves.slice(0, 4).map((move, index) => (
-          <span key= {index}>{move.move.name}</span>
-        ))}
-      </div>
-    </div>
+    <PokemonCard data={pokemon} />
   </>
 );
 }
+
+
+  //   <> 
+  //   <br></br>
+  //   <h2>{pokemon.name}</h2>
+  //   <br></br>
+  //   <div className={`pokemon-card ${getPokemonTypeClass(pokemon.types[0].type.name)}`}>
+  //     <h3>{pokemon.name}</h3>
+  //     <img src= {pokemon.sprites.front_default} alt={pokemon.name} />
+  //     <div className= "moves">
+  //       {pokemon.moves.slice(0, 4).map((move, index) => (
+  //         <span key= {index}>{move.move.name}</span>
+  //       ))}
+  //     </div>
+  //   </div>
+  // </>
 
 const getPokemonTypeClass = (type) => {
   switch (type) {
