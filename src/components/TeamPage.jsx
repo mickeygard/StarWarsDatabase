@@ -6,9 +6,7 @@ import App from '../App'
 function TeamPage() {
   return (
     <>
-     <App/>
-     <MyNavBar/>
-      <h1>TeamPage</h1>
+      <h2>My Pokemon Team</h2>
     </>
   )
 }

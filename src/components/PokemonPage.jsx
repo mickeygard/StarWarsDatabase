@@ -24,8 +24,10 @@ function PokemonPage() {
   }
   
   return (
-    <>
+    <> 
+    <br></br>
     <h2>{pokemon.name}</h2>
+    <br></br>
     <div className={`pokemon-card ${getPokemonTypeClass(pokemon.types[0].type.name)}`}>
       <h3>{pokemon.name}</h3>
       <img src= {pokemon.sprites.front_default} alt={pokemon.name} />
