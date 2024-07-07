@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -31,22 +32,24 @@ function MyNavBar() {
   return (
     <Navbar bg="light" expand="lg">
       {/* <Navbar.Brand href="/">POKEDEX</Navbar.Brand> */}
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <h1>POKEDEX</h1>
-      <Nav.Link as={Link} to='/'>Home</Nav.Link>
-      <Nav.Link as={Link} to='/team'>My Team #0</Nav.Link>
-        <Form inline="true" onSubmit={handleSearch} className="ml-auto">
-          <FormControl
-            type="text"
-            placeholder="search"
-            className="mr-sm-2"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <Button type="submit" variant="outline-success">Search</Button>
-        </Form>
-      </Navbar.Collapse>
+      <Container>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <h1>POKEDEX</h1>
+        <Nav.Link as={Link} to='/'>Home</Nav.Link>
+        <Nav.Link as={Link} to='/team'>My Team #0</Nav.Link>
+          <Form inline="true" onSubmit={handleSearch} className="ml-auto">
+            <FormControl
+              type="text"
+              placeholder="search"
+              className="mr-sm-2"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Button type="submit" variant="outline-success" id= "search-button">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 }

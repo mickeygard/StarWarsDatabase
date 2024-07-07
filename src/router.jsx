@@ -33,11 +33,11 @@ const router = createBrowserRouter([
         path: 'missingpokemon',
         element: <MissingPokemonPage />
       },
-      {
-        path: 'error404',
-        element: <Error404Page />
-      },
     ],
+  },
+  {
+    path: '*',
+    element: <Error404Page />
   },
 ]);
 
