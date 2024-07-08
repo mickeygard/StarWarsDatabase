@@ -11,6 +11,6 @@ function MissingPokemonPage() {
       <p>No such pokemon with name or id '{searchQuery}' exists!</p>
     </div>
   )
-}
+};
 
 export default MissingPokemonPage
