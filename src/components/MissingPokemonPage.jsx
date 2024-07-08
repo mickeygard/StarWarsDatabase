@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 function MissingPokemonPage() {
   return (
     <div>
@@ -10,3 +12,6 @@ function MissingPokemonPage() {
 }
 
 export default MissingPokemonPage
+
+
+// No such pokemon with name or id '${SearchQuery}' exists!

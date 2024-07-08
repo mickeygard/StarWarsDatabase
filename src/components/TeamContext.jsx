@@ -1,9 +1,8 @@
 import React, { createContext, useState } from 'react';
 
-
 const TeamContext = createContext();
 
-const TeamProvider = ({children}) => {
+const TeamProvider = ({ children }) => {
   const [team, setTeam] = useState([]);
 
   const addToTeam = (pokemon) => {
@@ -23,4 +22,4 @@ const TeamProvider = ({children}) => {
   );
 };
 
-export { TeamContext, TeamProvider }
+export { TeamContext, TeamProvider };

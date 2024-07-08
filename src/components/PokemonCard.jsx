@@ -1,28 +1,21 @@
-import React, { useContext } from 'react'
-// import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react';
 import { Card, Button } from "react-bootstrap";
 import { TeamContext } from './TeamContext';
 
 
 function PokemonCard({ data }) {
-    // const navigate = useNavigate()
     const { team, addToTeam, removeFromTeam } = useContext(TeamContext);
 
-    console.log('Team:', team); // Debugging
-    console.log('Data:', data); // Debugging
-
     const isInTeam = team.some((p) => p.name === data.name);
+    const isTeamFull = team.length >= 6;
 
     const handleTeamButtonClick = () => {
-      console.log('Button clicked'); // Debugging
       if (isInTeam) {
         removeFromTeam(data);
       } else {
         addToTeam(data);
       }
     };
-    // const navigateToPokemonPage = () => navigate(`./PokemonPage/${data.name}`)
     
     const getPokemonTypeClass = (type) => {
       switch (type) {
@@ -47,8 +40,9 @@ function PokemonCard({ data }) {
         default: return '';
       }
     };
+
     return (
-        <Card className={`pokemon-card ${getPokemonTypeClass(data.type)}`}>
+        <Card className={`pokemon-card ${getPokemonTypeClass(data.types[0].type.name)}`}>
             <img src= {data.sprites.front_default} alt={data.name} />
             <Card.Body>
               <h3>{data.name}</h3>
@@ -57,12 +51,13 @@ function PokemonCard({ data }) {
                         <div key={index}>{move.move.name}</div>
                     ))}
               </div>
-              {/* <Link to={`/pokemon/${data.name}`}>
-                <Button variant="primary">View Details</Button>
-              </Link> */}
-              <button variant={isInTeam ? "danger" : "success" } onClick={handleTeamButtonClick}>
+              <Button 
+                variant={isInTeam ? "danger" : "success" } 
+                onClick={handleTeamButtonClick}
+                disabled={isTeamFull}
+              >
                 {isInTeam ? "Release" : "Catch"}  
-              </button>
+              </Button>
             </Card.Body>
         </Card>
       );
