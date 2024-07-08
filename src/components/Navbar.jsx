@@ -20,7 +20,7 @@ function MyNavBar() {
       navigate(`/pokemon/${searchQuery.toLowerCase()}`);
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        navigate('/missingpokemon');
+        navigate('/missingpokemon', { state: { searchQuery } });
       } else {
         navigate('/error404');
       }

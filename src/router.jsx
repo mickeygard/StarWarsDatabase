@@ -24,11 +24,11 @@ const router = createBrowserRouter([
         path: 'team',
         element: <TeamPage />
       },
-      {
-        path: 'missingpokemon',
-        element: <MissingPokemonPage />
-      },
     ],
+  },
+  {
+    path: 'missingpokemon',
+    element: <MissingPokemonPage />
   },
   {
     path: '*',

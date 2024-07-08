@@ -1,17 +1,16 @@
-import React from 'react'
-
+import React from 'react';
+import { useLocation } from "react-router-dom";
 
 
 function MissingPokemonPage() {
+  const location = useLocation();
+  const searchQuery = location.state?.searchQuery || '';
+
   return (
     <div>
-      <h1>MissingPokemonPage</h1>
-      <p>The Pokemon you searched for does not exist in the database.</p>
+      <p>No such pokemon with name or id '{searchQuery}' exists!</p>
     </div>
   )
 }
 
 export default MissingPokemonPage
-
-
-// No such pokemon with name or id '${SearchQuery}' exists!
