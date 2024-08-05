@@ -1,0 +1,33 @@
+.background {
+    margin: 10px;
+    background-size: cover;
+}
+
+h2 {
+    text-align: center;
+    background-color: #705848;
+    border: #705848;
+}
+
+h3 {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+ul li a {
+    text-transform: capitalize;
+}
+
+.main-page-contents {
+    margin: 10px;
+}
+
+.main-page-contents h2 {
+    text-transform: capitalize;
+}
