@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import AllResultView, ResultByCategoryView, SingleResultView
+from .views import ResultByCategoryView, SingleResultView
 
 urlpatterns = [
-    path('', AllItemsView.as_view(), name='all_items'),
-    path('category/<str:category>/', ItemsByCategoryView.as_view(), name='items_by_category'),
-    path('<int:pk>/', SingleItemView.as_view(), name='an_item'),
+    path('category/<str:category>/', ResultByCategoryView.as_view(), name='result_by_category'),
+    path('<int:pk>/', SingleResultView.as_view(), name='a_result'),
 ]
