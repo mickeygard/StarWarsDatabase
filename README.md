@@ -8,7 +8,9 @@ Requirements-
   favorites linked to user, and on profile page
   User signup
   user profile pages
-  Rasa AI assistant to search APIs for longer form answers to user questions
+ Wish list / Future Improvements for portfolio-
+  Stretch- Rasa AI assistant to search APIs for longer form answers to user questions
+  Final stretch- AWS  
 
 ## Resources
 
@@ -37,7 +39,8 @@ Requirements-
 
 ### `<Rasa Assistant />`
 
--pop up chat box while on home page, all othe pages Rasa will be minimized, but big enough pop up button to be visible
+- pop up chat box while on home page, all othe pages Rasa will be minimized, but big enough pop up button to be visible
+- Stretch Armstrong- use animated protocol droid as Avatar with pop-up dialogue box
 - train to search both APIs for longer form answers for users, and for images to use on their profiles
 
 ### `<HomePage />`
@@ -71,6 +74,7 @@ Requirements-
 
 - right/left arrow scrolling rows for each category
 - background picture changes based on the category that's in view
+ - add backlight glow to cards based on some associated alignment
 - when you select a result from the vault it goes to an informational page
   - 'Films'
      - list of all the Star Wars films in the middle of the page, with a background that includes all the movie posters mashed.
@@ -96,6 +100,11 @@ Requirements-
 
 ### `<MissingResourcePage />`
 - page that renders only when the search bar is given a recource that it has no match for.
+
+
+### Basic Layout
+
+![TLDraw Layout](../StarWarsDatabase/Front_End/src/components/images/TLDraw.png)
 
 ## Functionality
 
