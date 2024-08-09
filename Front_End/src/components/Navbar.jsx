@@ -39,7 +39,7 @@ function MyNavBar() {
           <Nav className="me-auto">
           <Nav.Link as={Link} to='/'>Home</Nav.Link>
           
-          <Nav.Link as={Link} to='/favorites'>Favorites {`#${favorites.length}`}</Nav.Link>
+          <Nav.Link as={Link} to='/vault'>The Vault</Nav.Link>
           <NavDropdown title="Dropdown" id="basic-nav-dropdown">
              
               <NavDropdown.Item as={Link} to='/characters'>Characters</NavDropdown.Item>
@@ -65,7 +65,7 @@ function MyNavBar() {
           <Form onSubmit={handleSearch} className="ml-auto">
             <FormControl
               type="text"
-              placeholder="May the force be with you"
+              placeholder="Good Hunting"
               className="mr-sm-2"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

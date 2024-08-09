@@ -104,7 +104,7 @@ Requirements-
 
 ### Basic Layout
 
-![TLDraw Layout](../StarWarsDatabase/Front_End/src/components/images/TLDraw.png)
+![TLDraw Layout](./Front_End/src/components/images/TLDraw.png)
 
 ## Functionality
 

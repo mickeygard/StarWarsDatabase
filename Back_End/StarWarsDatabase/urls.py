@@ -22,7 +22,6 @@ urlpatterns = [
     path('api/', include('profile_app.urls')),
     path('api/', include('result_app.urls')),
     path('api/', include('user_app.urls')),
-    path('api/', include('result_app.urls')),
     path('api/', include('favorites_app.urls'))
     # Include other app URLs here
 ]

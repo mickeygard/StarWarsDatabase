@@ -1,9 +1,15 @@
+from django.contrib.auth import login, logout, authenticate
+from rest_framework.status import (
+    HTTP_200_OK, 
+    HTTP_204_NO_CONTENT,
+    HTTP_201_CREATED,
+    HTTP_400_BAD_REQUEST,
+    HTTP_401_UNAUTHORIZED )
 from rest_framework.views import APIView
 from rest_framework import generics, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth import authenticate
 from .models import User
 from .serializers import UserSerializer
 
@@ -16,22 +22,21 @@ class CreateAccountView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
-        token = Token.objects.get_or_create(user=user)[0]
+        token, created = Token.objects.get_or_create(user=user)
         headers = self.get_success_headers(serializer.data)
         return Response({"user": user.email, "token": token.key}, status=status.HTTP_201_CREATED, headers=headers)
 
 class LoginView(APIView):
     def post(self, request):
-        email = request.data.get('email')
         password = request.data.get('password')
         username = request.data.get('username')
-        user = authenticate(email=email, password=password, username=username)
+        user = authenticate(username=username, password=password)
 
         if user:
-            token = Token.objects.get_or_create(user=user)[0]
+            token, created = Token.objects.get_or_create(user=user)
             return Response({'token': token.key, 'email': user.email}, status=status.HTTP_200_OK)
         else:
-            return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({'error': "I'm an authenticator, Jedi mind tricks don't work on me, only valid credentials!"}, status=status.HTTP_401_UNAUTHORIZED)
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]

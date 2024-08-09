@@ -23,7 +23,7 @@ class SingleResultView(generics.RetrieveAPIView):
         if not created:
             favorites_result.quantity += 1
             favorites_result.save()
-        return Response(f"{result.name} has been added to your favorites", status=status.HTTP_201_CREATED)
+        return Response(f"{result.name} has been added to your personal collection.", status=status.HTTP_201_CREATED)
 
     def delete(self, request, *args, **kwargs):
         result = self.get_object()

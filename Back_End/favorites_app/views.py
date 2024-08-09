@@ -11,8 +11,10 @@ class FavoritesView(generics.RetrieveAPIView):
 
     def get_object(self):
         favorites, created = Favorites.objects.get_or_create(user=self.request.user)
+        if favorites==[0]:
+            return "Nothing currently stored in your personal vault. Good hunting."
         return favorites
-
+        
 class AddToFavoritesView(generics.CreateAPIView):
     serializer_class = FavoritesResultSerializer
     permission_classes = [IsAuthenticated]
@@ -25,9 +27,6 @@ class AddToFavoritesView(generics.CreateAPIView):
             favorites_result.quantity += 1
             favorites_result.save()
         return Response(FavoritesResultSerializer(favorites_result).data, status=status.HTTP_201_CREATED)
-    
-    def patch(self, request, *args, **kwargs):
-        return self.partial_update(request, *args, **kwargs)
 
 class DeleteFavoritesView(generics.DestroyAPIView):
     serializer_class = FavoritesResultSerializer
