@@ -73,33 +73,80 @@ Requirements-
 ### `<Vault />`
 
 - right/left arrow scrolling rows for each category
-- background picture changes based on the category that's in view
- - add backlight glow to cards based on some associated alignment
-- when you select a result from the vault it goes to an informational page
+- when you select a result from the vault it directs to an informational page
+  Categories-
   - 'Films'
-     - list of all the Star Wars films in the middle of the page, with a background that includes all the movie posters mashed.
-  -'Characters'
-     - star wars crowd background (city)
-   -'Droids'
-     - The background will be industrial, hopefully GIF with a small amount of movement.
-   -'Creatures'
-     - arena background? maybe zoo/cage?
-   -'Locations'
-     - star system?
-   - Organizations'
-     - find a cool background
-   -'Species'
-      - find a cool background
-   -'Vehicles'
-      - some sort of lot, factory, garage?
-   -'Planets'
-      - Space/solar system background
+     - make films list database within this project, with data pulled from wookeipedia.
+  - 'Characters'
+     - https://starwars-databank-server.vercel.app/api/v1/characters
+     - all results from the starwars-databank-server will have attributes in this format
+       example-
+       -_id: "640b44d4a1996bc1b0f1c2d5",
+       - name: "Abednedo",
+       - description: "A gregarious and clever species, Abednedos are common sights in the galaxy, pursuing a range of professions on many planets. They hail from a planet of the same name, which is noted for its sprawling, colorful and chaotic cities. After the Battle of Endor, the Empire attacked Abednedo with a climate-disruption array; as a result, many Abednedos support the New Republic or the Resistance. Their native language is Abednedish, though many speak Basic.",
+       - image: "https://lumiere-a.akamaihd.net/v1/images/tlj-abednedo-databank-main-image_bd8babfb.jpeg",
+       - __v: 0
+  - 'Droids'
+     - https://starwars-databank-server.vercel.app/api/v1/droids
+  - 'Creatures'
+     - https://starwars-databank-server.vercel.app/api/v1/creatures
+  - 'Locations'
+     - https://starwars-databank-server.vercel.app/api/v1/locations
+  - Organizations'
+     - https://starwars-databank-server.vercel.app/api/v1/organizations
+  - 'Species'
+      - https://starwars-databank-server.vercel.app/api/v1/species
+  - 'Starships'
+      - https://swapi.dev/api/starships
+      - endpoints are like so-
+        - /starships/ -- get all the starship resources
+        - /starships/:id/ -- get a specific starship resource
+        - /starships/schema/ -- view the JSON schema for this resource
+      - attributes are as follows
+        - name string -- The name of this starship. The common name, such as "Death Star".
+        - model string -- The model or official name of this starship. Such as "T-65 X-wing" or "DS-1 Orbital Battle Station".
+        - starship_class string -- The class of this starship, such as "Starfighter" or "Deep Space Mobile Battlestation"
+        - manufacturer string -- The manufacturer of this starship. Comma separated if more than one.
+        - cost_in_credits string -- The cost of this starship new, in galactic credits.
+        - length string -- The length of this starship in meters.
+        - crew string -- The number of personnel needed to run or pilot this starship.
+        - passengers string -- The number of non-essential people this starship can transport.
+        - max_atmosphering_speed string -- The maximum speed of this starship in the atmosphere. "N/A" if this starship is incapable of atmospheric flight.
+        - hyperdrive_rating string -- The class of this starships hyperdrive.
+        - MGLT string -- The Maximum number of Megalights this starship can travel in a standard hour. A "Megalight" is a standard unit of distance and has never been defined before within the Star Wars universe. This figure is only really useful for measuring the difference in speed of starships. We can assume it is similar to AU, the distance between our Sun (Sol) and Earth.
+        - cargo_capacity string -- The maximum number of kilograms that this starship can transport.
+        - consumables *string
+          The maximum length of time that this starship can provide consumables for its entire crew without having to resupply.
+        - films array -- An array of Film URL Resources that this starship has appeared in.
+        - pilots array -- An array of People URL Resources that this starship has been piloted by.
+        - url string -- the hypermedia URL of this resource.
+        - created string -- the ISO 8601 date format of the time that this resource was created.
+        - edited string -- the ISO 8601 date format of the time that this resource was edited.
+  - 'Vehicles'
+      - https://starwars-databank-server.vercel.app/api/v1/vehicles
+  - 'Planets'
+      - https://swapi.dev/api/planets
+      - attributes
+        - name string -- The name of this planet.
+        - diameter string -- The diameter of this planet in kilometers.
+        - rotation_period string -- The number of standard hours it takes for this planet to complete a single rotation on its axis.
+        - orbital_period string -- The number of standard days it takes for this planet to complete a single orbit of its local star.
+        - gravity string -- A number denoting the gravity of this planet, where "1" is normal or 1 standard G. "2" is twice or 2 standard Gs. "0.5" is half or 0.5 standard Gs.
+        - population string -- The average population of sentient beings inhabiting this planet.
+        - climate string -- The climate of this planet. Comma separated if diverse.
+        - terrain string -- The terrain of this planet. Comma separated if diverse.
+        - surface_water string -- The percentage of the planet surface that is naturally occurring water or bodies of water.
+        - residents array -- An array of People URL Resources that live on this planet.
+        - films array -- An array of Film URL Resources that this planet has appeared in.
+        - url string -- the hypermedia URL of this resource.
+        - created string -- the ISO 8601 date format of the time that this resource was created.
+        - edited string -- the ISO 8601 date format of the time that this resource was edited.
 
 ### `<Error404Page />`
 - page that all non-matching urls redirect to
 
 ### `<MissingResourcePage />`
-- page that renders only when the search bar is given a recource that it has no match for.
+- page that renders only when the search bar is given a resource that it has no match for.
 
 
 ### Basic Layout
