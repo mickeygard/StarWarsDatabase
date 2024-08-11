@@ -2,17 +2,17 @@ import React from 'react';
 import { useLocation } from "react-router-dom";
 
 
-function MissingResourcePage() {
+function MissingResultPage() {
   const location = useLocation();
   const searchQuery = location.state?.searchQuery || '';
 
   return (
     <>
       <div>
-        <p>No such resource with name '{searchQuery}' exists!</p>
+        <p>'{searchQuery}' </p>
       </div>
     </>
   )
 };
 
-export default MissingResourcePage
+export default MissingResultPage

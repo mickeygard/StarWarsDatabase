@@ -1,5 +1,5 @@
 {
-  "name": "pokedex",
+  "name": "database",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -10,12 +10,12 @@
     "cy:run": "npx cypress run --spec"
   },
   "dependencies": {
-    "axios": "^1.4.0",
+    "axios": "^1.7.3",
     "bootstrap": "^5.3.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.1"
+    "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
@@ -23,5 +23,6 @@
     "@vitejs/plugin-react": "^4.0.1",
     "cypress": "^12.17.1",
     "vite": "^4.4.3"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }

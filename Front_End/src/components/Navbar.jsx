@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Form, FormControl, Button } from 'react-bootstrap';
 import { FavoritesContext } from './FavoritesContext';
@@ -40,26 +40,7 @@ function MyNavBar() {
           <Nav.Link as={Link} to='/'>Home</Nav.Link>
           
           <Nav.Link as={Link} to='/vault'>The Vault</Nav.Link>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-             
-              <NavDropdown.Item as={Link} to='/characters'>Characters</NavDropdown.Item>
-              
-              <NavDropdown.Item as={Link} to='/creatures'>Creatures</NavDropdown.Item>
-              
-              <NavDropdown.Item as={Link} to='/droids'>Droids</NavDropdown.Item>
-              
-              <NavDropdown.Item as={Link} to='/films'>Films</NavDropdown.Item>
-              
-              <NavDropdown.Item as={Link} to='/locations'>Locations</NavDropdown.Item>
-              
-              <NavDropdown.Item as={Link} to='/organizations'>Organizations</NavDropdown.Item> 
-              
-              <NavDropdown.Item as={Link} to='/planets'>Planets</NavDropdown.Item> 
-              
-              <NavDropdown.Item as={Link} to='/species'>Species</NavDropdown.Item> 
-              
-              <NavDropdown.Item as={Link} to='/vehicle'>Vehicles</NavDropdown.Item>
-            </NavDropdown>
+          <Nav.Link as={Link} to='/loginsignup'>Log In / Sign Up</Nav.Link>
           </Nav>
         </Navbar.Collapse>
           <Form onSubmit={handleSearch} className="ml-auto">
