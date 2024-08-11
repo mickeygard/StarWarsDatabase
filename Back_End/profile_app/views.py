@@ -6,6 +6,10 @@ class ProfileView(generics.ListCreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
+class ProfileDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
 class AddFavoritesView(generics.CreateAPIView):
     queryset = Favorites.objects.all()
     serializer_class = FavoritesSerializer

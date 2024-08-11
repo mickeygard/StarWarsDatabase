@@ -6,33 +6,10 @@ import { AuthContext } from './AuthContext';
 const LogInSignUp = () => {
     const { login } = useContext(AuthContext);
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [passwordStrength, setPasswordStrength] = useState('');
-    const [usernameTaken, setUsernameTaken] = useState(false);
     const navigate = useNavigate();
 
-    const checkUsernameAvailability = async (username) => {
-        try {
-            const response = await axiosInstance.get(`check-username/${username}/`);
-            setUsernameTaken(response.data.taken);
-        } catch (error) {
-            console.error('Error checking username availability', error);
-        }
-    };
-
-    const handlePasswordChange = (e) => {
-        const value = e.target.value;
-        setPassword(value);
-        // Still need to improve logic for password strength
-        if (value.length < 6) {
-            setPasswordStrength('Youngling');
-        } else if (value.length < 10) {
-            setPasswordStrength('Padawan');
-        } else {
-            setPasswordStrength('Master');
-        }
-    };const handleLogin = async () => {
+    const handleLogin = async () => {
         try {
             await login(username, password);
             navigate('/profilepage');
@@ -41,17 +18,8 @@ const LogInSignUp = () => {
         }
     };
 
-    const handleSignUp = async () => {
-        if (usernameTaken) {
-            alert("That's a name I've heard before, but it's not yours. Try again.");
-            return;
-        }
-        try {
-            await axiosInstance.post('createaccount/', { username, email, password });
-            navigate('/accountinfo');
-        } catch (error) {
-            console.error('Sign up failed', error);
-        }
+    const handleSignUp = () => {
+        navigate('/accountinfo');
     };
 
     return (
@@ -59,23 +27,13 @@ const LogInSignUp = () => {
             <input
                 type="text"
                 value={username}
-                onChange={(e) => {
-                    setUsername(e.target.value);
-                    checkUsernameAvailability(e.target.value);
-                }}
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
-            />
-            {usernameTaken && <p>That's a name I've heard before, but it's not yours. Try again.</p>}
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
             />
             <input
                 type="password"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
             />
             <button onClick={handleLogin}>Log In</button>

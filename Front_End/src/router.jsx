@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import HomePage from "./components/HomePage.jsx";
 import TheVault from "./components/TheVault.jsx";
-import LogInSignUp from './components/LogInSignUp';
+import LogInSignUp from './components/LogInSignUp.jsx';
 import AccountInfo from './components/AccountInfo';
 import ProfilePage from './components/ProfilePage';
 import Error404Page from "./components/Error404Page.jsx";

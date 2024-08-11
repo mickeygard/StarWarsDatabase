@@ -90,6 +90,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Star_Wars_db',
+        'USER': 'mickeygard',
+        'PASSWORD': 'TROGdor..81',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

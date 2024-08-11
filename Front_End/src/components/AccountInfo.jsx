@@ -5,8 +5,11 @@ import axiosInstance from './api/axios';
 const AccountInfo = () => {
     const [step, setStep] = useState(1);
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordStrength, setPasswordStrength] = useState('');
     const [username, setUsername] = useState('');
-    const [affiliation, setAffiliation] = useState('');
+    const [usernameTaken, setUsernameTaken] = useState(false);
+    const [alignment, setAlignment] = useState('');
     const [bio, setBio] = useState('');
     const navigate = useNavigate();
 
@@ -23,6 +26,28 @@ const AccountInfo = () => {
         'First Order'
     ];
 
+    const checkUsernameAvailability = async (username) => {
+        try {
+            const response = await axiosInstance.get(`check-username/${username}/`);
+            setUsernameTaken(response.data.taken);
+        } catch (error) {
+            console.error('Error checking username availability', error);
+        }
+    };
+
+    const handlePasswordChange = (e) => {
+        const value = e.target.value;
+        setPassword(value);
+        // Still need to improve password strength logic
+        if (value.length < 6) {
+            setPasswordStrength('Youngling');
+        } else if (value.length < 12) {
+            setPasswordStrength('Padawan');
+        } else {
+            setPasswordStrength('Master');
+        }
+    };
+
     const handleNext = () => {
         setStep(step + 1);
     };
@@ -36,7 +61,7 @@ const AccountInfo = () => {
             await axiosInstance.post('profiles/', {
                 email,
                 username,
-                organization_affiliation: affiliation,
+                organization_alignment: alignment,
                 bio,
             });
             navigate('/profilepage');
@@ -61,57 +86,85 @@ const AccountInfo = () => {
                         <button onClick={() => navigate('/loginsignup')}>Cancel</button>
                     </div>
                 );
-            case 2:
-                return (
-                    <div>
-                        <h2>Step 2: Select Username and Organization Affiliation</h2>
-                        <input
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            placeholder="Username"
-                        />
-                        <select value={affiliation} onChange={(e) => setAffiliation(e.target.value)}>
-                            <option value="">Select Organization</option>
-                            {organizations.map((org) => (
-                                <option key={org} value={org}>
-                                    {org}
-                                </option>
-                            ))}
-                        </select>
-                        <button onClick={handleNext}>Next</button>
-                        <button onClick={handleSkip}>Skip</button>
-                        <button onClick={() => navigate('/loginsignup')}>Cancel</button>
-                    </div>
-                );
-            case 3:
-                return (
-                    <div>
-                        <h2>Step 3: Enter Bio</h2>
-                        <textarea
-                            value={bio}
-                            onChange={(e) => setBio(e.target.value)}
-                            placeholder="Write about why you love Star Wars, create a character backstory, whatever you want!"
-                        />
-                        <button onClick={handleComplete}>Complete</button>
-                        <button onClick={handleSkip}>Skip</button>
-                        <button onClick={() => navigate('/loginsignup')}>Cancel</button>
-                    </div>
-                );
-            default:
-                return null;
-        }
-    };
-
-    return (
-        <div>
-            {renderStep()}
+                case 2:
+                    return (
+                        <div>
+                            <h2>Step 2: Enter Password</h2>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                placeholder="Password"
+                            />
+                            <p>Password strength: {passwordStrength}</p>
+                            <button onClick={handleNext}>Next</button>
+                            <button onClick={() => navigate('/loginsignup')}>Cancel</button>
+                        </div>
+                    );
+                case 3:
+                    return (
+                        <div>
+                            <h2>Step 3: Select Username</h2>
+                            <input
+                                type="text"
+                                value={username}
+                                onChange={(e) => {
+                                    setUsername(e.target.value);
+                                    checkUsernameAvailability(e.target.value);
+                                }}
+                                placeholder="Username"
+                            />
+                            {usernameTaken && <p>That's a name I've heard before, but it's not yours. Try again.</p>}
+                            <button onClick={handleNext}>Next</button>
+                            <button onClick={handleSkip}>Skip</button>
+                            <button onClick={() => navigate('/loginsignup')}>Cancel</button>
+                        </div>
+                    );
+                case 4:
+                    return (
+                        <div>
+                            <h2>Step 4: Select Organization Alignment</h2>
+                            <select value={alignment} onChange={(e) => setAlignment(e.target.value)}>
+                                <option value="">Select Organization</option>
+                                {organizations.map((org) => (
+                                    <option key={org} value={org}>
+                                        {org}
+                                    </option>
+                                ))}
+                            </select>
+                            <button onClick={handleNext}>Next</button>
+                            <button onClick={handleSkip}>Skip</button>
+                            <button onClick={() => navigate('/loginsignup')}>Cancel</button>
+                        </div>
+                    );
+                case 5:
+                    return (
+                        <div>
+                            <h2>Step 5: Enter Bio</h2>
+                            <textarea
+                                value={bio}
+                                onChange={(e) => setBio(e.target.value)}
+                                placeholder="Bio"
+                            />
+                            <button onClick={handleComplete}>Complete</button>
+                            <button onClick={handleSkip}>Skip</button>
+                            <button onClick={() => navigate('/loginsignup')}>Cancel</button>
+                        </div>
+                    );
+                default:
+                    return null;
+            }
+        };
+    
+        return (
             <div>
-                <p>Progress: {step}/3 steps complete</p>
-                <progress value={step} max="3"></progress>
+                {renderStep()}
+                <div>
+                    <p>Progress: {step}/5 steps complete</p>
+                    <progress value={step} max="5"></progress>
+                </div>
             </div>
-        </div>
-    );
-};
-
-export default AccountInfo;
+        );
+    };
+    
+    export default AccountInfo;

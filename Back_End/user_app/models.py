@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     username = models.CharField(default='Padawan', max_length=25)
-    affiliation = models.CharField(default='Citizen', max_length=25)
+    alignment = models.CharField(default='Citizen', max_length=25)
 
     groups = models.ManyToManyField(
     Group,
