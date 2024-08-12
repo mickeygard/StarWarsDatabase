@@ -1,0 +1,27 @@
+.vault {
+  padding: 20px;
+}
+
+.category {
+  margin-bottom: 20px;
+}
+
+.scrolling-row {
+  display: flex;
+  overflow-x: auto;
+}
+
+.item {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.item p {
+  text-align: center;
+}

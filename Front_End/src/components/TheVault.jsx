@@ -1,138 +1,100 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import './vault.css'; // Add CSS for styling
 
+const Vault = () => {
+    const [films, setFilms] = useState([]);
+    const [characters, setCharacters] = useState([]);
+    const [droids, setDroids] = useState([]);
+    const [creatures, setCreatures] = useState([]);
+    const [locations, setLocations] = useState([]);
+    const [organizations, setOrganizations] = useState([]);
+    const [species, setSpecies] = useState([]);
+    const [starships, setStarships] = useState([]);
+    const [vehicles, setVehicles] = useState([]);
+    const [planets, setPlanets] = useState([]);
+    const navigate = useNavigate();
 
-const CharactersPage = ({isActive}) => {
-  const [characters, setCharacters] = useState([]);
-  const [limit, setLimit] = useState(10); // Default limit
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1); // To manage the number of pages
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const filmsResponse = await axios.get('https://swapi.dev/api/films'); // Replace with your films API endpoint
+                setFilms(filmsResponse.data.results);
 
-  useEffect(() => {
-    const getCharacters = async () => {
-      setLoading(true);
-      setError(null);
+                const charactersResponse = await axios.get('https://starwars-databank-server.vercel.app/api/v1/characters');
+                setCharacters(charactersResponse.data.data);
 
-      try {
-        const response = await axios.get(`https://starwars-databank-server.vercel.app/api/v1/characters`, {
-          params: {
-            limit: limit,
-            page: page
-          }
-        });
-        console.log('API response:', response.data); // Log the full response for debugging
+                const droidsResponse = await axios.get('https://starwars-databank-server.vercel.app/api/v1/droids');
+                setDroids(droidsResponse.data.data);
 
-        if (response.data && response.data.data) {
-          setCharacters(response.data.data);
-          setTotalPages(Math.ceil(response.data.info.total / limit)); // Update total pages
-        } else {
-          setError('Unexpected response structure');
-          setCharacters([]);
-        }
-      } catch (error) {
-        setError('Error fetching character data');
-        setCharacters([]); // Ensure characters is an array
-      } finally {
-        setLoading(false);
-      }
+                const creaturesResponse = await axios.get('https://starwars-databank-server.vercel.app/api/v1/creatures');
+                setCreatures(creaturesResponse.data.data);
+
+                const locationsResponse = await axios.get('https://starwars-databank-server.vercel.app/api/v1/locations');
+                setLocations(locationsResponse.data.data);
+
+                const organizationsResponse = await axios.get('https://starwars-databank-server.vercel.app/api/v1/organizations');
+                setOrganizations(organizationsResponse.data.data);
+
+                const speciesResponse = await axios.get('https://starwars-databank-server.vercel.app/api/v1/species');
+                setSpecies(speciesResponse.data.data);
+
+                const starshipsResponse = await axios.get('https://swapi.dev/api/starships');
+                setStarships(starshipsResponse.data.results);
+
+                const vehiclesResponse = await axios.get('https://starwars-databank-server.vercel.app/api/v1/vehicles');
+                setVehicles(vehiclesResponse.data.data);
+
+                const planetsResponse = await axios.get('https://swapi.dev/api/planets');
+                setPlanets(planetsResponse.data.results);
+            } catch (error) {
+                console.error('Error fetching data', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const handleResultClick = (category, id) => {
+        navigate(`/${category}/${id}`);
     };
 
-    getCharacters();
-  }, [limit, page]);
+    const renderCategory = (title, data, category) => {
+        if (!Array.isArray(data)) {
+            console.error(`Expected an array for ${category}, but got:`, data);
+            return null;
+        }
 
+        return (
+            <div className="category">
+                <h2>{title}</h2>
+                <div className="scrolling-row">
+                    {data.map((item) => (
+                        <div key={item._id || item.url} className="item" onClick={() => handleResultClick(category, item._id || item.url)}>
+                            <img src={item.image || item.url} alt={item.name || item.title} />
+                            <p>{item.name || item.title}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    };
 
-  const handleLimitChange = (event) => {
-    setLimit(Number(event.target.value));
-    setPage(1);
-  };
+    return (
+        <div className="vault">
+            {renderCategory('Films', films, 'films')}
+            {renderCategory('Characters', characters, 'characters')}
+            {renderCategory('Droids', droids, 'droids')}
+            {renderCategory('Creatures', creatures, 'creatures')}
+            {renderCategory('Locations', locations, 'locations')}
+            {renderCategory('Organizations', organizations, 'organizations')}
+            {renderCategory('Species', species, 'species')}
+            {renderCategory('Starships', starships, 'starships')}
+            {renderCategory('Vehicles', vehicles, 'vehicles')}
+            {renderCategory('Planets', planets, 'planets')}
+        </div>
+    );
+};
 
-  const handlePageChange = (direction) => {
-    if(direction === 'next' && page < totalPages) {
-      setPage(page + 1);
-    } else if (direction === 'prev' && page > 1) {
-      setPage(page -1);
-    }
-  }
-
-  if (loading) {
-    return <div>Gathering Midichlorians...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  const backgroundStyles = {
-    backgroundImage: 'url("src/components/images/Star_Wars_Characters.jpg")',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-    backgroundAttachment: 'fixed',
-    backgroundSize: 'cover',
-    height: '100vh',
-    width: '100vw',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '20px',
-    boxSizing: 'border-box'
-  };
-
-  const boxStyles = {
-    backgroundColor: 'rgba(128, 128, 128, 0.7)', // Gray with 50% transparency
-    color: 'black',
-    padding: '20px',
-    borderRadius: '10px',
-    textAlign: 'center',
-    maxWidth: '80%',
-    margin: '0 auto'
-  };
-
-  const listStyles = {
-    listStyleType: 'none',
-    padding: 0
-  };
-
-  const listItemStyles = {
-    margin: '10px 0'
-  };
-
-  const linkStyles = {
-    color: 'black',
-    textDecoration: 'none'
-  };
-  
-  return (
-    <div style={backgroundStyles}>
-      <div style={boxStyles}>
-        <h5>Characters</h5>
-        <label htmlFor="limit">Show: </label>
-        <select id="limit" value={limit} onChange={handleLimitChange}>
-          <option value={10}>10</option>
-          <option value={25}>25</option>
-          <option value={50}>50</option>
-          <option value={75}>75</option>
-        </select>
-        <ul style={listStyles}>
-          {characters.map((character) => (
-          <li key={character.id} style={listItemStyles}>
-            <Link to={`/uniquecharacters/${character.id}`} style={linkStyles}>{character.name}</Link>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <button onClick={() => handlePageChange('prev')} disabled={page === 1}>
-          Previous
-        </button>
-        <span> Page {page} of {totalPages} </span>
-        <button onClick={() => handlePageChange('next')} disabled={page === totalPages}>
-          Next
-        </button>
-      </div>
-    </div>
-    </div>
-  )};
-
-export default CharactersPage;
+export default Vault;
