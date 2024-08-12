@@ -1,0 +1,19 @@
+/* NavigationBar.css */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.nav-buttons .btn {
+  margin: 0 10px;
+  color: aliceblue;
+  background-color: #999;
+  border-color: #444;
+}
+
+.nav-buttons .btn:hover {
+  color:#777;
+  background-color: #444;
+  border-color: #222
+}

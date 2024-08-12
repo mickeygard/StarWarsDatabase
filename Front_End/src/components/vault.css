@@ -1,9 +1,11 @@
 .vault {
   padding: 20px;
+  background-image: url("./images/Hyperspace.gif");
 }
 
 .category {
   margin-bottom: 20px;
+  background-color: #999;
 }
 
 .scrolling-row {
@@ -14,14 +16,32 @@
 .item {
   margin-right: 10px;
   cursor: pointer;
+  border: 3px;
+  border-color: black;
+  border-radius: 5px;
 }
 
 .item img {
   width: 100px;
   height: 100px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .item p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 2px;
+  border-color: black;
   text-align: center;
+}
+
+.title {
+  text-align: center;
+  color:white;
+  background-color:#444;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:xx-large;
+  margin-top: 15px;
+  margin-bottom: 5px;
+
 }

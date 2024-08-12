@@ -1,0 +1,39 @@
+.informational-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.informational-page h1 {
+  width: 800px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-top: solid 2px;
+  border-left: solid 2px;
+  border-right: solid 2px;
+  margin: 0 0 0 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-color: black;
+  background-color: #999;
+
+}
+
+.informational-page img {
+  width: 800px;
+  max-width: 100%;
+  border: solid 4px;
+}
+
+.informational-page .info-box {
+  width: 800px;
+  max-width: 100%;
+  padding: 13px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 2px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #999;
+  text-align: left;
+  margin-bottom: 40px;
+}

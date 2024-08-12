@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './InformationalPage.css'
 
 const InformationalPage = ({ category }) => {
     const { id } = useParams();
@@ -24,11 +25,13 @@ const InformationalPage = ({ category }) => {
     }
 
     return (
-        <div>
+        <div className="informational-page">
             <h1>{data.name || data.title}</h1>
-            <p>{data.description}</p>
             {data.image && <img src={data.image} alt={data.name || data.title} />}
-            {/* Add more fields as needed */}
+            <div className="info-box">
+                <p>{data.description}</p>
+                {/* Add more fields as needed */}
+            </div>
         </div>
     );
 };

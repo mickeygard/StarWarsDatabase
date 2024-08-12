@@ -59,7 +59,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "http://localhost:5173",
 ]
 
 ROOT_URLCONF = 'StarWarsDatabase.urls'
@@ -90,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Star_Wars_db',
-        'USER': 'mickeygard',
+        'USER': 'mickeygardner',
         'PASSWORD': 'TROGdor..81',
         'HOST': 'localhost',
         'PORT': '5432',

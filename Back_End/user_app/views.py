@@ -10,9 +10,15 @@ from rest_framework import generics, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view
 from .models import User
 from .serializers import UserSerializer
 
+
+@api_view(['GET'])
+def check_username(request, username):
+    is_taken = User.objects.filter(username=username).exists()
+    return Response({'taken': is_taken})
 
 class CreateAccountView(generics.CreateAPIView):
     queryset = User.objects.all()

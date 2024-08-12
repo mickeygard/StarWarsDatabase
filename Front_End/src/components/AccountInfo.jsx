@@ -28,7 +28,7 @@ const AccountInfo = () => {
 
     const checkUsernameAvailability = async (username) => {
         try {
-            const response = await axiosInstance.get(`check-username/${username}/`);
+            const response = await axiosInstance.get(`user/check-username/${username}/`, { timeout: 5000 });
             setUsernameTaken(response.data.taken);
         } catch (error) {
             console.error('Error checking username availability', error);
@@ -58,13 +58,14 @@ const AccountInfo = () => {
 
     const handleComplete = async () => {
         try {
-            await axiosInstance.post('profiles/', {
+            const response = await axiosInstance.post('profile/profiles/', {
                 email,
                 username,
                 organization_alignment: alignment,
                 bio,
             });
-            navigate('/profilepage');
+            console.log("Profile created:", response.data);
+        navigate('/profilepage');
         } catch (error) {
             console.error('Profile update failed', error);
         }
