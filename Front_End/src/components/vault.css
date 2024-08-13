@@ -1,36 +1,39 @@
 .vault {
   padding: 20px;
-  background-image: url("./images/Hyperspace.gif");
+  background-image: url("./images/Coruscant.jpg");
+  background-size:cover;
 }
 
 .category {
   margin-bottom: 20px;
   background-color: #999;
+  position:relative;
 }
 
 .scrolling-row {
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .item {
   margin-right: 10px;
   cursor: pointer;
-  border: 3px;
-  border-color: black;
-  border-radius: 5px;
 }
 
 .item img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+  width:;
+  height:100px;
+  object-fit: ;
   border-radius: 5px;
+  margin-left:10px;
+
 }
 
 .item p {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: 2px;
+  font-weight: bold;
+  border: 5px;
   border-color: black;
   text-align: center;
 }
@@ -43,5 +46,24 @@
   font-size:xx-large;
   margin-top: 15px;
   margin-bottom: 5px;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: solid #444;
+  cursor: pointer;
+  padding: 5px 10px 5px 10px;
+  margin: 2px;
+  z-index: 1;
+}
 
+.arrow-left {
+  left: 0;
+}
+
+.arrow-right {
+  right: 0;
 }

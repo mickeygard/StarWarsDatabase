@@ -9,12 +9,14 @@ Requirements-
   User signup
   user profile pages
  Wish list / Future Improvements for portfolio-
-  Stretch- Rasa AI assistant to search APIs for longer form answers to user questions
-  Final stretch- AWS  
+  Rasa AI assistant to search APIs for longer form answers to user questions
+  Footer with "contact us" link and list of resources
+  Web deployment
 
 ## Resources
 
 - Wookiepedia "https://starwars.fandom.com/wiki/Main_Page"
+- Wikipedia "https://en.wikipedia.org/wiki/Star_Wars"
 - Star Wars API "https://swapi.dev/"
 - Star Wars Databank "https://starwars-databank.vercel.app/"
 - Official Star Wars Database "https://www.starwars.com/databank"

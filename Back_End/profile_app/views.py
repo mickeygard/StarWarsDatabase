@@ -1,6 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from django.shortcuts import redirect
 from .models import Profile, Favorites
 from .serializers import ProfileSerializer, FavoritesSerializer
 
@@ -8,8 +9,8 @@ from .serializers import ProfileSerializer, FavoritesSerializer
 def create_profile(request):
     serializer = ProfileSerializer(data=request.data)
     if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=201)
+        profile = serializer.save()
+        return redirect('profile-detail', pk=profile.pk)
     return Response(serializer.errors, status=404)
 
 class ProfileView(generics.ListCreateAPIView):

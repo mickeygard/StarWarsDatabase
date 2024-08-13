@@ -65,9 +65,9 @@ const AccountInfo = () => {
                 bio,
             });
             console.log("Profile created:", response.data);
-        navigate('/profilepage');
+        navigate('/profilepage/');
         } catch (error) {
-            console.error('Profile update failed', error);
+            console.error('Profile update failed', error.data);
         }
     };
 

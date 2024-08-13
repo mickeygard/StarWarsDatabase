@@ -3,20 +3,23 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-image: url("./images/Hyperspace.gif");
+  background-size:cover;
 }
 
 .informational-page h1 {
   width: 800px;
+  height: 80px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight:bold;
   border-top: solid 2px;
   border-left: solid 2px;
   border-right: solid 2px;
-  margin: 0 0 0 0;
+  margin-bottom: 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-color: black;
   background-color: #999;
-
 }
 
 .informational-page img {
@@ -30,6 +33,8 @@
   max-width: 100%;
   padding: 13px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: larger;
+  font-weight: bolder;
   border: 2px solid black;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
