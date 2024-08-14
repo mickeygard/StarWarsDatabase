@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'StarWarsDatabase.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Star_Wars_db',
+        'NAME': 'star_wars_db',
         'USER': 'mickeygardner',
         'PASSWORD': 'TROGdor..81',
         'HOST': 'localhost',

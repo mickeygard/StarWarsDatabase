@@ -60,7 +60,7 @@ const AccountInfo = () => {
     const handleComplete = async () => {
         try {
             // Create user account and profile
-            const userResponse = await axiosInstance.post('user/register/', {
+            const userResponse = await axiosInstance.post('../', {
                 email,
                 password,
                 username,

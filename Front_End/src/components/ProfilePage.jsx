@@ -35,8 +35,8 @@ const ProfilePage = () => {
     return (
         <div>
             <h1>{profile.user.username}</h1>
-            <p>{profile.bio}</p>
             <p>Organization: {profile.organization_alignment}</p>
+            <p>{profile.bio}</p>
             <div>
                 <h2>Favorites</h2>
                 {favorites.length > 0 ? (

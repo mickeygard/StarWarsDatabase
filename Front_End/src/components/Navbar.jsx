@@ -42,6 +42,7 @@ function MyNavBar() {
             <Col xs={12} className="text-center">
                 <Button as={Link} to="/" variant="primary" className="m-2">Home</Button>
                 <Button as={Link} to="/vault" variant="primary" className="m-2">The Vault</Button>
+                <Button as={Link} to="/profilepage" variant="primary" className="m-2">Profile</Button>
                 <Button as={Link} to="/loginsignup" variant="primary" className="m-2">Log In / Sign Up</Button>
             </Col>
         </Row>
