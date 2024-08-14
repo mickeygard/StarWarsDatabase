@@ -28,7 +28,8 @@ const AccountInfo = () => {
 
     const checkUsernameAvailability = async (username) => {
         try {
-            const response = await axiosInstance.get(`user/check-username/${username}/`, { timeout: 5000 });
+            const response = await axiosInstance.get(`user/check-username/${username}/`, 
+                { timeout: 5000 });
             setUsernameTaken(response.data.taken);
         } catch (error) {
             console.error('Error checking username availability', error);
@@ -47,7 +48,7 @@ const AccountInfo = () => {
             setPasswordStrength('Master');
         }
     };
-
+    //increase progress counter
     const handleNext = () => {
         setStep(step + 1);
     };
@@ -58,16 +59,18 @@ const AccountInfo = () => {
 
     const handleComplete = async () => {
         try {
-            const response = await axiosInstance.post('profile/profiles/', {
+            // Create user account and profile
+            const userResponse = await axiosInstance.post('user/register/', {
                 email,
+                password,
                 username,
-                organization_alignment: alignment,
-                bio,
+                organization_alignment: alignment, bio,
             });
-            console.log("Profile created:", response.data);
-        navigate('/profilepage/');
+
+            console.log("User and profile created:", userResponse.data);
+            navigate('/profilepage/');
         } catch (error) {
-            console.error('Profile update failed', error.data);
+            console.error('Profile update failed', error.response.data);
         }
     };
 
@@ -148,7 +151,6 @@ const AccountInfo = () => {
                                 placeholder="Bio"
                             />
                             <button onClick={handleComplete}>Complete</button>
-                            <button onClick={handleSkip}>Skip</button>
                             <button onClick={() => navigate('/loginsignup')}>Cancel</button>
                         </div>
                     );

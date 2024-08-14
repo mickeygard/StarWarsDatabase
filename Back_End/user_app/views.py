@@ -13,6 +13,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from .models import User
 from .serializers import UserSerializer
+from profile_app.models import Profile
+from profile_app.serializers import ProfileSerializer
 
 
 @api_view(['GET'])
@@ -20,7 +22,7 @@ def check_username(request, username):
     is_taken = User.objects.filter(username=username).exists()
     return Response({'taken': is_taken})
 
-class CreateAccountView(generics.CreateAPIView):
+class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -29,8 +31,22 @@ class CreateAccountView(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         token, created = Token.objects.get_or_create(user=user)
+        profile_data = {
+            'user': user.id,
+            'organization_alignment': request.data.get('organization_alignment', ''),
+            'bio': request.data.get('bio', '')
+        }
+        profile_serializer = ProfileSerializer(data=profile_data)
+        if profile_serializer.is_valid():
+            profile_serializer.save()
+        else:
+            user.delete()  # Undo user creation if profile creation fails
+            return Response(profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
         headers = self.get_success_headers(serializer.data)
-        return Response({"user": user.username, "token": token.key}, status=status.HTTP_201_CREATED, headers=headers)
+        return Response({"user": user.username, "token": token.key}, 
+            status=status.HTTP_201_CREATED, headers=headers)
+        
 
 class LoginView(APIView):
     def post(self, request):
@@ -42,7 +58,9 @@ class LoginView(APIView):
             token, created = Token.objects.get_or_create(user=user)
             return Response({'token': token.key, 'email': user.email}, status=status.HTTP_200_OK)
         else:
-            return Response({'error': "I'm an authenticator droid, Jedi mind tricks don't work on me, only credentials!"}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({'error':
+                 "I'm an authenticator droid, Jedi mind tricks don't work on me, only credentials!"},
+                   status=status.HTTP_401_UNAUTHORIZED)
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]

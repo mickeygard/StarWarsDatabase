@@ -10,8 +10,8 @@ def create_profile(request):
     serializer = ProfileSerializer(data=request.data)
     if serializer.is_valid():
         profile = serializer.save()
-        return redirect('profile-detail', pk=profile.pk)
-    return Response(serializer.errors, status=404)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProfileView(generics.ListCreateAPIView):
     queryset = Profile.objects.all()

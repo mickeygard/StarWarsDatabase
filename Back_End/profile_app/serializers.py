@@ -4,7 +4,7 @@ from .models import Profile, Favorites
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ['id', 'user', 'organization_alignment', 'bio']
 
 class FavoritesSerializer(serializers.ModelSerializer):
     class Meta:
