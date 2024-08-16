@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async (username, password) => {
-        const response = await axiosInstance.post('login/', { username, password });
+        const response = await axiosInstance.post('user/login/', { username, password });
         const { token } = response.data;
         localStorage.setItem('token', token);
         axiosInstance.defaults.headers['Authorization'] = `Token ${token}`;

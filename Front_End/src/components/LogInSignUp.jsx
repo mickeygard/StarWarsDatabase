@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from './api/axios';
+import axiosInstance from './api/axios'
 import { AuthContext } from './AuthContext';
 
 const LogInSignUp = () => {

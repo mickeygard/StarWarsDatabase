@@ -1,4 +1,9 @@
 /* NavigationBar.css */
+.nav {
+  background-image: url("./images/Wide_background.jpg");
+  background-size:cover;
+}
+
 .nav-buttons {
   display: flex;
   justify-content: center;

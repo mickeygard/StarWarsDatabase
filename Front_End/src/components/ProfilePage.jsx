@@ -8,10 +8,11 @@ const ProfilePage = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axiosInstance.get('profiles/');
+                const response = await axiosInstance.get('profile/profiles/<int:pk>/');
                 setProfile(response.data);
             } catch (error) {
-                console.error('Failed to fetch profile', error);
+                console.error('Failed to fetch profile', error,
+                error.response ? error.response.data : error.message);
             }
         };
 
@@ -20,7 +21,8 @@ const ProfilePage = () => {
                 const response = await axiosInstance.get('favorites/');
                 setFavorites(response.data.favorites_result);
             } catch (error) {
-                console.error('Failed to fetch favorites', error);
+                console.error('Failed to fetch favorites', error, 
+                  error.response ? error.response.data : error.message);
             }
         };
 
@@ -34,9 +36,9 @@ const ProfilePage = () => {
 
     return (
         <div>
-            <h1>{profile.user.username}</h1>
-            <p>Organization: {profile.organization_alignment}</p>
-            <p>{profile.bio}</p>
+            <h1>{profile.user?.username || 'Unknown User'}</h1>
+            <p>Organization: {profile.organization_alignment || 'N/A'}</p>
+            <p>{profile.bio || 'No bio available'}</p>
             <div>
                 <h2>Favorites</h2>
                 {favorites.length > 0 ? (

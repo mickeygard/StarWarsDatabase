@@ -58,9 +58,16 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173", "http://localhost:8000", "http://localhost:5500"
+# ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 ROOT_URLCONF = 'StarWarsDatabase.urls'
 
@@ -89,7 +96,7 @@ WSGI_APPLICATION = 'StarWarsDatabase.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'star_wars_db',
+        'NAME': 'Star_Wars_db',
         'USER': 'mickeygardner',
         'PASSWORD': 'TROGdor..81',
         'HOST': 'localhost',
@@ -139,4 +146,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL= 'auth.User'
+AUTH_USER_MODEL= 'user_app.user'
