@@ -12,6 +12,7 @@ Requirements-
   Rasa AI assistant to search APIs for longer form answers to user questions
   Footer with "contact us" link and list of resources
   Web deployment
+  Django mailing feature for auto emails to users
 
 ## Resources
 
@@ -21,7 +22,7 @@ Requirements-
 - Star Wars Databank "https://starwars-databank.vercel.app/"
 - Official Star Wars Database "https://www.starwars.com/databank"
 - Autocomplete "https://github.com/pacosw1/react-autocomplete/tree/master/src/components"
-- Backgroud scrolling image for categories https://imagekit.io/blog/lazy-loading-images-complete-guide/
+- Background scrolling image for categories https://imagekit.io/blog/lazy-loading-images-complete-guide/
 
 ### `<Navbar>`
 

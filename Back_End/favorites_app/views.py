@@ -2,18 +2,17 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import Favorites, Favorites_result
+from rest_framework.views import APIView
 from result_app.models import Result
 from .serializers import FavoritesSerializer, FavoritesResultSerializer
 
-class FavoritesView(generics.RetrieveAPIView):
-    serializer_class = FavoritesSerializer
+class FavoritesView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get_object(self):
-        favorites, created = Favorites.objects.get_or_create(user=self.request.user)
-        if favorites==[0]:
-            return "Nothing currently stored in your personal vault. Good hunting."
-        return favorites
+    def get(self, request):
+        favorites = Favorites.objects.filter(user=request.user)
+        serializer = FavoritesSerializer(favorites, many=True)
+        return Response({'favorites_result': serializer.data})
         
 class AddToFavoritesView(generics.CreateAPIView):
     serializer_class = FavoritesResultSerializer

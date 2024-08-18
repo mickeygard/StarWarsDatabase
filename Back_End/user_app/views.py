@@ -9,10 +9,9 @@ from rest_framework.response import Response
 from .models import User
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-
+from profile_app.models import Profile
 
 class Sign_up(APIView):
-    # queryset = User.objects.all()
 
     def post(self, request):
         user_data = {
@@ -22,11 +21,13 @@ class Sign_up(APIView):
             'alignment': request.data.get('alignment'),
             'bio': request.data.get('bio'),
         }
-        new_user = User.objects.create_user(**request.data)
+        new_user = User.objects.create_user(**user.data)
+        Profile.objects.create(username=new_user, alignment=request.data.get
+          ('alignment'), bio=request.data.get('bio'))
         token = Token.objects.create(user=new_user)
         return Response(
             {"username": new_user.username, "token": token.key}, status=HTTP_201_CREATED
-        )
+        ) 
 
 class Master_Sign_Up(APIView):
 
