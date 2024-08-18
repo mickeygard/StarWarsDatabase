@@ -8,5 +8,4 @@ urlpatterns = [
     path('logout/', Log_out.as_view(), name='log_out'),
     path('info/', Info.as_view(), name='info'),
     path('master/', Master_Sign_Up.as_view(), name='master_sign_up')
-
 ]

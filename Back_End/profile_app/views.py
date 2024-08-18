@@ -19,9 +19,9 @@ class ProfileView(APIView):
 
     def get(self, request):
         try:
-            profile = Profile.objects.get(username=request.user)
+            profile = Profile.objects.get(user=request.user)
         except Profile.DoesNotExist:
-            profile = Profile.objects.create(username=request.user)
+            profile = Profile.objects.create(user=request.user)
         serializer = ProfileSerializer(profile)
         return Response(serializer.data)
 

@@ -58,7 +58,7 @@ const AccountInfo = () => {
           });
 
           console.log("User and profile created:", userResponse.data);
-          navigate('/profilepage/');
+          navigate('/loginsignup/');
       } catch (error) {
           console.error('Profile update failed', error);
           

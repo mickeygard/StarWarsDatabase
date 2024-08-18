@@ -21,8 +21,8 @@ class Sign_up(APIView):
             'alignment': request.data.get('alignment'),
             'bio': request.data.get('bio'),
         }
-        new_user = User.objects.create_user(**user.data)
-        Profile.objects.create(username=new_user, alignment=request.data.get
+        new_user = User.objects.create_user(**user_data)
+        Profile.objects.create(user=new_user, alignment=request.data.get
           ('alignment'), bio=request.data.get('bio'))
         token = Token.objects.create(user=new_user)
         return Response(
