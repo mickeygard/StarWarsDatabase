@@ -146,6 +146,7 @@ const AccountInfo = () => {
                 onChange={(e) => setBio(e.target.value)}
                 placeholder="Bio"
               />
+              <p>You will be redirected to the login page after sign up to log in.</p>
               <button onClick={handleComplete}>Complete</button>
               <button onClick={() => navigate('/loginsignup')}>Cancel</button>
           </div>

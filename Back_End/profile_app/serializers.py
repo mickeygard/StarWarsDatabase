@@ -9,4 +9,4 @@ class ProfileSerializer(serializers.ModelSerializer):
 class FavoritesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favorites
-        fields = ["category", "result_id", "result_name"]
+        fields = ["category", "result_id", "result_name", "user_id"]

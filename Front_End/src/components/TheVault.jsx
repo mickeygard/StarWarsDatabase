@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useFavorites } from './FavoritesContext'
 import './vault.css';
 
 const Vault = () => {
@@ -31,6 +32,7 @@ const Vault = () => {
         species: false,
         vehicles: false,
     });
+    const { favorites, addToFavorites, removeFromFavorites } = useFavorites();
     const navigate = useNavigate();
 
     const fetchData = useCallback(async (category, setData, page) => {
@@ -39,7 +41,7 @@ const Vault = () => {
             const response = await axios.get
                 (`https://starwars-databank-server.vercel.app/api/v1/${category}?page=${page}&limit=20`);
             setData(prevData => {
-            const newData = response.data.data.filter(item => !prevData.some(existingItem => 
+                const newData = response.data.data.filter(item => !prevData.some(existingItem => 
                 existingItem._id === item._id));
                 return [...prevData, ...newData];
             });
@@ -113,7 +115,7 @@ const Vault = () => {
         navigate(`/${category}/${id}`);
     };
 
-    const handleScroll = (e, category, setData) => {
+    const handleScroll = (e, category) => {
         if (e.target.scrollWidth - e.target.scrollLeft === e.target.clientWidth && !loading
             [category]) {
             setPage(prevPage => ({ ...prevPage, [category]: prevPage[category] + 1 }));
@@ -149,6 +151,10 @@ const Vault = () => {
                         (category, item._id || item.url)}>
                             <img src={item.image || item.url} alt={item.name || item.title} />
                             <p>{item.name || item.title}</p>
+                            <button onClick={() => favorites.some(fav => fav.id === item._id) ? 
+                                removeFromFavorites(item) : addToFavorites(item)}>
+                                {favorites.some(fav => fav.id === item._id) ? '★' : '☆'}
+                            </button>
                         </div>
                     ))}
                 </div>
