@@ -11,9 +11,7 @@ class Profile(models.Model):
 
 class Favorites(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='favorites')
-  category = models.CharField(max_length=255)
   result_id = models.CharField(max_length=255)
-  result_name = models.CharField(max_length=255)
 
   def __str__(self):
     return f"{self.user.username} - {self.result_name}"

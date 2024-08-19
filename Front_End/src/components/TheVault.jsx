@@ -5,51 +5,51 @@ import { useFavorites } from './FavoritesContext'
 import './vault.css';
 
 const Vault = () => {
-    const [films, setFilms] = useState([]);
-    const [characters, setCharacters] = useState([]);
-    const [droids, setDroids] = useState([]);
-    const [creatures, setCreatures] = useState([]);
-    const [locations, setLocations] = useState([]);
-    const [organizations, setOrganizations] = useState([]);
-    const [species, setSpecies] = useState([]);
-    const [vehicles, setVehicles] = useState([]);
-    const [planets, setPlanets] = useState([]);
-    const [page, setPage] = useState({
-        characters: 1,
-        droids: 1,
-        creatures: 1,
-        locations: 1,
-        organizations: 1,
-        species: 1,
-        vehicles: 1,
-    });
-    const [loading, setLoading] = useState({
-        characters: false,
-        droids: false,
-        creatures: false,
-        locations: false,
-        organizations: false,
-        species: false,
-        vehicles: false,
-    });
-    const { favorites, addToFavorites, removeFromFavorites } = useFavorites();
-    const navigate = useNavigate();
+  const [films, setFilms] = useState([]);
+  const [characters, setCharacters] = useState([]);
+  const [droids, setDroids] = useState([]);
+  const [creatures, setCreatures] = useState([]);
+  const [locations, setLocations] = useState([]);
+  const [organizations, setOrganizations] = useState([]);
+  const [species, setSpecies] = useState([]);
+  const [vehicles, setVehicles] = useState([]);
+  const [planets, setPlanets] = useState([]);
+  const [page, setPage] = useState({
+    characters: 1,
+    droids: 1,
+    creatures: 1,
+    locations: 1,
+    organizations: 1,
+    species: 1,
+    vehicles: 1,
+  });
+  const [loading, setLoading] = useState({
+    characters: false,
+    droids: false,
+    creatures: false,
+    locations: false,
+    organizations: false,
+    species: false,
+    vehicles: false,
+  });
+  const { favorites, addToFavorites, removeFromFavorites } = useFavorites();
+  const navigate = useNavigate();
 
-    const fetchData = useCallback(async (category, setData, page) => {
-        try {
-            setLoading(prevLoading => ({ ...prevLoading, [category]: true }));
-            const response = await axios.get
-                (`https://starwars-databank-server.vercel.app/api/v1/${category}?page=${page}&limit=20`);
-            setData(prevData => {
-                const newData = response.data.data.filter(item => !prevData.some(existingItem => 
-                existingItem._id === item._id));
-                return [...prevData, ...newData];
-            });
-            setLoading(prevLoading => ({ ...prevLoading, [category]: false }));
-        } catch (error) {
-            console.error(`Error fetching ${category} data`, error);
-            setLoading(prevLoading => ({ ...prevLoading, [category]: false }));
-        }
+  const fetchData = useCallback(async (category, setData, page) => {
+    try {
+      setLoading(prevLoading => ({ ...prevLoading, [category]: true }));
+      const response = await axios.get
+        (`https://starwars-databank-server.vercel.app/api/v1/${category}?page=${page}&limit=20`);
+      setData(prevData => {
+        const newData = response.data.data.filter(item => !prevData.some(existingItem => 
+        existingItem._id === item._id));
+        return [...prevData, ...newData];
+      });
+      setLoading(prevLoading => ({ ...prevLoading, [category]: false }));
+    } catch (error) {
+      console.error(`Error fetching ${category} data`, error);
+      setLoading(prevLoading => ({ ...prevLoading, [category]: false }));
+    }
     }, []);
 
             // // useCallback is a React hook that returns a memoized version of the callback function. 
@@ -151,10 +151,6 @@ const Vault = () => {
                         (category, item._id || item.url)}>
                             <img src={item.image || item.url} alt={item.name || item.title} />
                             <p>{item.name || item.title}</p>
-                            <button onClick={() => favorites.some(fav => fav.id === item._id) ? 
-                                removeFromFavorites(item) : addToFavorites(item)}>
-                                {favorites.some(fav => fav.id === item._id) ? '★' : '☆'}
-                            </button>
                         </div>
                     ))}
                 </div>
