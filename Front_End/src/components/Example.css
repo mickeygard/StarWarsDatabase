@@ -1,0 +1,230 @@
+/* set viewport - <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+
+/* set image size to scale, with  max at 100% - <img src="img_girl.jpg" style="max-width:100%;height:auto;">
+/* 
+set text size to % of viewport (vw) <h1 style="font-size:10vw">Hello World</h1>
+
+--- set screen layout to change based on the size of the user's screen. This example lets 3 items be side by 
+side on a larger screen, then vertically on a smaller screen ---
+
+<style>
+.left, .right {
+  float: left;
+  width: 20%;   -- The width is 20%, by default 
+}
+
+.main {
+  float: left;
+  width: 60%;    -- The width is 60%, by default 
+}
+
+-- Use a media query to add a breakpoint at 800px: 
+@media screen and (max-width: 800px) {
+  .left, .main, .right {
+    width: 100%;       --The width is 100%, when the viewport is 800px or smaller --
+  }
+}
+</style>
+
+---responsive grid view---
+--everything gets padding and border--
+{
+  box-sizing: border-box;
+}
+--this is for 12 columns--
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+--set all columns floating left with a 15px padding--
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+  border: 1px solid red;
+}
+  --html for all 12 columns each row should be wrapped in a div--
+  <div class="row">
+  <div class="col-3">...</div> <!-- 25% -->
+  <div class="col-9">...</div> <!-- 75% -->
+</div>
+--clear the flow?--
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+  ----example----
+  {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color :#33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+  -------Media queries-------
+ --light-blue if the screen is smaller than 600px--
+  @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+  --adding breakpoint for small screen layout--
+  --For mobile phones:
+[class*="col-"] {
+  width: 100%;
+}
+
+  @media only screen and (min-width: 600px) {
+  --For tablets:
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+  --For desktop: 
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+--HTML to control the layout--
+first spans 3, 2nd spans 9, 3rd spans 12
+<div class="row">
+  <div class="col-3 col-s-3">...</div>
+  <div class="col-6 col-s-9">...</div>
+  <div class="col-3 col-s-12">...</div>
+</div>
+
+--Breakpoint norms--
+-Extra small devices (phones, 600px and down)
+@media only screen and (max-width: 600px) {...}
+
+-Small devices (portrait tablets and large phones, 600px and up)
+@media only screen and (min-width: 600px) {...}
+
+-Medium devices (landscape tablets, 768px and up)
+@media only screen and (min-width: 768px) {...}
+
+-Large devices (laptops/desktops, 992px and up)
+@media only screen and (min-width: 992px) {...}
+
+-Extra large devices (large laptops and desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {...}
+
+--portrait and landscape layouts--
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
+--hide elements on different sizes
+@media only screen and (max-width: 600px) {
+  div.example {
+    display: none;
+  }
+}
+  ---FONT SIZE---
+   If the screen size is 601px or more, set the font-size of <div> to 80px 
+@media only screen and (min-width: 601px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+  
+ If the screen size is 600px or less, set the font-size of <div> to 30px
+ @media only screen and (max-width: 600px) {
+  div.example {
+    font-size: 30px;
+  }
+}
+
+-----Scaling Images ----
+img {
+  max-width: 100%;
+  height: auto;
+}
+---Bootstrap Example---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap 5 Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

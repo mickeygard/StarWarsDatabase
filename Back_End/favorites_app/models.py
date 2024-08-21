@@ -7,7 +7,7 @@ class Favorites(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='favorites_favorites')
 
 class Favorites_result(models.Model):
-    favorites = models.ForeignKey(Favorites, related_name='favorite_result_set', on_delete=models.CASCADE)
+    favorites = models.ForeignKey(Favorites, related_name='favorite_result_set', on_delete=models.CASCADE),
     result = models.ForeignKey(Result, on_delete=models.CASCADE)
 
     def __str__(self):

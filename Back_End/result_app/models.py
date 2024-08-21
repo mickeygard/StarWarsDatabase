@@ -7,7 +7,7 @@ class Category(models.Model):
         return self.name
 
 class Result(models.Model):
-    _id = models.CharField(max_length=255)
+    _id = models.CharField(max_length=255, primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     image = models.URLField(max_length=200)

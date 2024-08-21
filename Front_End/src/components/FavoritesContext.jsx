@@ -26,14 +26,15 @@ const FavoritesProvider = ({ children }) => {
         result_id: resource._id,
         result_name: resource.name,
         result_description: resource.description,
-        result_image: resource.image,
+        result_image: resource.image
       });
       const response = await axiosInstance.post('profile/favorites/add/', {
         result_id: resource._id,
         result_name: resource.name,
         result_description: resource.description,
-        result_image: resource.image,
+        result_image: resource.image
       });
+      console.log('Response data:', response.data);
       setFavorites([...favorites, response.data]);
     } catch (error) {
       console.error('Failed to add to favorites', error);
@@ -43,7 +44,7 @@ const FavoritesProvider = ({ children }) => {
   const removeFromFavorites = async (resource) => {
     try {
       await axiosInstance.delete(`profile/favorites/delete/${resource._id}/`);
-      setFavorites(favorites.filter((r) => r.result_id !== resource._id));
+      setFavorites(favorites.filter((r) => r.result_id !== resource.result_id));
     } catch (error) {
       console.error('Failed to remove from favorites', error);
     }

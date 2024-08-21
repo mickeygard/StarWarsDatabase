@@ -20,16 +20,18 @@ const ProfilePage = () => {
         console.error('Failed to fetch profile', error, error.response ? error.response.data : error.message);
       }
     };
-
+      // edited fetchFavorites so that there was not an API useCallback, there are calls for saved information on favorites
     const fetchFavorites = async () => {
       try {
         const response = await axiosInstance.get('profile/favorites/');
-        const favoritesData = await Promise.all(response.data.map(async (favorite) => {
-          const resultResponse = await axios.get
-          (`https://starwars-databank-server.vercel.app/api/v1/${favorite.category}/${favorite.result_id}`);
-          return { ...favorite, ...resultResponse.data };
+        const favoritesData = response.data.map(favorite => ({
+          id: favorite.result_id,
+          name: favorite.result_name,
+          description: favorite.result_description,
+          image: favorite.result_image
         }));
         setFavorites(favoritesData);
+        console.log('Favorites data:', favoritesData)
       } catch (error) {
         console.error('Failed to fetch favorites', error.response ? error.response.data : error.message);
       }
@@ -84,17 +86,27 @@ const ProfilePage = () => {
           <button onClick={() => setEditing(true)}>Edit</button>
         </div>
       )}
-      <div>
+      {/* <div>
         <h2>Favorites</h2>
         {favorites && favorites.length > 0 ? (
           favorites.map((favorite) => (
-            <div key={favorite.result_id}>
-              <h3>{favorite.name || favorite.result_name}</h3>
-              <p>{favorite.description || favorite.result_description}</p>
-              <img src={favorite.image || favorite.result_image} alt={favorite.name || favorite.result_name} 
-              onError={(e) => e.target.src = 'default-image-url.jpg'} />
-              <button onClick={() => handleRemoveFavorite(favorite.result_id)}>Remove</button>
-            </div>
+            <div key={favorite.id}>
+              <h3>{favorite.name}</h3>
+              <p>{favorite.description}</p>
+              <img src={favorite.image} alt={favorite.name}/>
+              <button onClick={() => handleRemoveFavorite(favorite.id)}>Remove Favorite</button>
+            </div> */}
+          <div>
+            <h2>Favorites</h2>
+              {favorites && favorites.length > 0 ? (
+              favorites.map((favorite) => (
+              <div key={favorite.result_id}>
+                <h3>{favorite.name || favorite.result_name}</h3>
+                <p>{favorite.description || favorite.result_description}</p>
+                <img src={favorite.image || favorite.result_image} alt={favorite.name || favorite.result_name} 
+                onError={(e) => e.target.src = 'default-image-url.jpg'} />
+                <button onClick={() => handleRemoveFavorite(favorite.result_id)}>Remove</button>
+              </div>
           ))
         ) : (
           <p>Your vault is currently empty. Good Hunting.</p>

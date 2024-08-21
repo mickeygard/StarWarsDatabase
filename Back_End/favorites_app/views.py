@@ -41,6 +41,6 @@ class DeleteFavoritesView(generics.DestroyAPIView):
   permission_classes = [IsAuthenticated]
 
   def delete(self, request, *args, **kwargs):
-    favorites_result = Favorites_result.objects.get(id=kwargs['id'])
+    favorites_result = Favorites_result.objects.get(_id=kwargs['_id']) #added underscore in front of id to match api call results
     favorites_result.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
