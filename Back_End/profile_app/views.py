@@ -3,8 +3,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from result_app.models import Result
-from favorites_app.models import Favorites_result
 from .models import Profile, Favorites
 from .serializers import ProfileSerializer, FavoritesSerializer
 import logging
@@ -32,7 +30,7 @@ class ProfileDetailView(generics.RetrieveUpdateDestroyAPIView):
   queryset = Profile.objects.all()
   serializer_class = ProfileSerializer
 
-#the entirety of favoritesview did not exist yesterday when favorites would not render more than the remove button
+#the entirety of favoritesview did not exist 8/20 when favorites would not render more than the remove button
 class FavoritesView(APIView):
   permission_classes = [IsAuthenticated]
 
@@ -48,7 +46,7 @@ class AddFavoritesView(generics.CreateAPIView):
   serializer_class = FavoritesSerializer
   permission_classes = [IsAuthenticated]
 
-  def post(self, request, *args, **kwargs):
+  def post(self, request):
     favorites, created = Favorites.objects.get_or_create(user=request.user, 
       result_id=request.data['result_id'])
     if not created:
@@ -59,8 +57,33 @@ class AddFavoritesView(generics.CreateAPIView):
     favorites.result_image = request.data['result_image']
     favorites.save()
     return Response(FavoritesSerializer(favorites).data, status=status.HTTP_201_CREATED)
-  
-  # 8/20 code - favorites won't save, bio and alignment won't edit, can't create new profiles, etc.
+
+class DeleteFavoritesView(generics.DestroyAPIView):
+  serializer_class = FavoritesSerializer
+  permission_classes = [IsAuthenticated]
+
+  def delete(self, request, *args, **kwargs):
+      favorites = Favorites.objects.get(user=request.user, result_id=kwargs['result_id'])
+      favorites.delete()
+      return Response(status=status.HTTP_204_NO_CONTENT)
+
+class ListFavoritesView(generics.ListAPIView):
+  serializer_class = FavoritesSerializer
+  permission_classes = [IsAuthenticated]
+
+  def get_queryset(self):
+    return Favorites.objects.filter(user=self.request.user)
+
+
+
+
+
+
+
+
+
+
+      # 8/20 code - favorites won't save, bio and alignment won't edit, can't create new profiles, etc.
   # def post(self, request, *args, **kwargs):
   #   try:
   #     result_id = request.data.get('result_id')  # Retrieve result_id from request data
@@ -83,19 +106,3 @@ class AddFavoritesView(generics.CreateAPIView):
   #       return Response(FavoritesSerializer(favorites_result).data, status=status.HTTP_201_CREATED)
   #   except Exception as e:
   #     return Response({"detail": "Internal Server Error"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-class DeleteFavoritesView(generics.DestroyAPIView):
-  serializer_class = FavoritesSerializer
-  permission_classes = [IsAuthenticated]
-
-  def delete(self, request, *args, **kwargs):
-      favorites = Favorites.objects.get(user=request.user, result_id=kwargs['result_id'])
-      favorites.delete()
-      return Response(status=status.HTTP_204_NO_CONTENT)
-
-class ListFavoritesView(generics.ListAPIView):
-  serializer_class = FavoritesSerializer
-  permission_classes = [IsAuthenticated]
-
-  def get_queryset(self):
-    return Favorites.objects.filter(user=self.request.user)

@@ -101,8 +101,7 @@ const ProfilePage = () => {
                       <Card.Img 
                         variant="top" 
                         src={favorite.image || favorite.result_image} 
-                        alt={favorite.name || favorite.result_name} 
-                        onError={(e) => e.target.src = 'default-image-url.jpg'} 
+                        alt={favorite.name || favorite.result_name}  
                       />
                       <Card.Text>{favorite.description || favorite.result_description}</Card.Text>
                       <Button variant="danger" onClick={() => handleRemoveFavorite(favorite.id)}>

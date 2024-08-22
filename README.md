@@ -8,11 +8,18 @@ Requirements-
   favorites linked to user, and on profile page
   User signup
   user profile pages
- Wish list / Future Improvements for portfolio-
-  Rasa AI assistant to search APIs for longer form answers to user questions
-  Footer with "contact us" link and list of resources
-  Web deployment
-  Django mailing feature for auto emails to users
+
+
+## Features to Create
+
+- text to speech bot (and overall accessibility)
+- full scalability
+- implement react youtube tool to create links for videos.
+- AI chatbot
+- add footer
+- django mailing feature
+- web deployment
+- view other user profiles / create and user forums
 
 ## Resources
 
