@@ -9,46 +9,73 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 2%;
   box-sizing: border-box;
-
-}.grid-container2 {
-  display: grid;
-  grid-template-rows: auto; /* Create two rows */
-  width: 100%; /* Cover the width of the screen */
-  height: 0px;
-  justify-items: center; /* Center the content horizontally */
-  gap: 20px; /* Adjust the gap between rows as needed */
 }
 
-.inputs {
-  display: flex;
-  flex-direction: column;
-  margin-top: 5%;
-  gap: 10px; /* Adjust the gap between inputs as needed */
+.info {
+  background: #555;
+  border: solid #444 4px; 
+  color: red;
 }
 
-.inputs input {
-  padding: 1%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
+  .grid-item.inputs {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: none;
+    border: None;
+    border-radius: 8px;
+    margin: 20px;
+    gap: 20px; /* Adjust the gap between cards as needed */
+  }
+  
+  .favorite-card {
+    margin-bottom: 20px;
+    border: solid #555;
+    background: linear-gradient(
+      30deg,
+      #555 5%,
+      #777 10%,
+      #888 30%,
+      #999 50%,
+      #ddd 70%,
+      #ddd 80%,
+      #999 95%
+    );
+    border-radius: 2px;
+    background-color: rgba(153, 153, 153, 0.7); /* Translucent background */
+  }
+  
+  .favorite-card .card-title {
+    color: #111;
+    font-weight: bold;
+    border: solid #555 3px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
 
-.buttons {
-  display: flex;
-  flex-direction: columns;
-  gap: .2%; /* Adjust the gap between buttons as needed */
-}
-
-.buttons button {
-  margin: 10px 10px;
-  color: aliceblue;
-  background-color: #999;
-  border-color: #444;
-}
-
-.buttons button:hover {
-  color: #777;
-  background-color: #444;
-  border-color: #222;
-}
+  .favorite-card .card-text {
+    color:#222;
+    border: solid #555 3px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px; 
+  }
+  .favorite-card .card-image {
+    height: 250px; /* Set the image height */
+    object-fit: cover; /* Ensure the image covers the area */
+    border-radius: 0;
+  }
+  
+  .favorite-card .btn-danger {
+    background-color: #666;
+    border-color: #d43f3a;
+    color: red;
+  }
+  
+  .favorite-card .btn-danger:hover {
+    background-color: red;
+    border: #222;
+    color: #222;
+  }

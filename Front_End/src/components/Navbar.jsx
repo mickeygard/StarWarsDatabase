@@ -39,7 +39,7 @@ function MyNavBar() {
 
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="Nav-Bar-Body">
       <div className="background0">
         <Container>
         <div className="grid-container0">

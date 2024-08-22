@@ -29,7 +29,7 @@
 
 .grid-item0 {
   text-align: center; /* Center the title text */
-  color: aliceblue; /* Set the title text color */
+  color: #222; /* Set the title text color */
   background-color: rgba(100 100 100 .1) ; /* Remove any background color */
 }
 

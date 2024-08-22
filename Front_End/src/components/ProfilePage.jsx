@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from './api/axios';
 import axios from 'axios';
+import { Card, Button } from "react-bootstrap"
 import "./ProfilePage.css"
 
 const ProfilePage = () => {
@@ -66,9 +67,9 @@ const ProfilePage = () => {
 
   return (
     <div className="background4">
-      <h1>{profile.username?.username}</h1>
+      <h2>{profile.username?.username}</h2>
       {editing ? (
-        <div>
+        <div class="info">
           <label>
             Organization:
             <input type="text" value={alignment} onChange={(e) => setAlignment(e.target.value)} />
@@ -87,25 +88,31 @@ const ProfilePage = () => {
           <button onClick={() => setEditing(true)}>Edit</button>
         </div>
       )}
-        <h2>Favorites</h2>
-          <div classname="grid-container2">
-            <div className="grid-item inputs">
-              {favorites && favorites.length > 0 ? (
+          <h2>Favorites</h2>
+          <div className="grid-item inputs">
+            {favorites && favorites.length > 0 ? (
               favorites.map((favorite) => (
-              <div key={favorite.result_id}>
-                <h3>{favorite.name || favorite.result_name}</h3>
-                <p>{favorite.description || favorite.result_description}</p>
-                <img src={favorite.image || favorite.result_image} alt={favorite.name || favorite.result_name} 
-                onError={(e) => e.target.src = 'default-image-url.jpg'} />
-                <button onClick={() => handleRemoveFavorite(favorite.result_id)}>Remove</button>
-              </div> 
-            ))
+                <Card key={favorite.result_id} className="favorite-card">
+                  <Card.Body>
+                    <Card.Title>{favorite.name || favorite.result_name}</Card.Title>
+                      <Card.Img 
+                        variant="top" 
+                        src={favorite.image || favorite.result_image} 
+                        alt={favorite.name || favorite.result_name} 
+                        onError={(e) => e.target.src = 'default-image-url.jpg'} 
+                      />
+                      <Card.Text>{favorite.description || favorite.result_description}</Card.Text>
+                      <Button variant="danger" onClick={() => handleRemoveFavorite(favorite.result_id)}>
+                        Remove
+                      </Button>
+                  </Card.Body>
+                </Card>
+              ))
           ) : (
             <p>Your vault is currently empty. Good Hunting.</p>
           )}
         </div>
-      </div> 
-    </div>
+      </div>
   );
 };
 
