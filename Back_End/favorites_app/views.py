@@ -41,6 +41,10 @@ class DeleteFavoritesView(generics.DestroyAPIView):
   permission_classes = [IsAuthenticated]
 
   def delete(self, request, *args, **kwargs):
-    favorites_result = Favorites_result.objects.get(_id=kwargs['_id']) #added underscore in front of id to match api call results
-    favorites_result.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
+        try:
+            print(f"Deleting favorite with result_id: {kwargs['result_id']} for user: {request.user}")
+            favorite = Favorites.objects.get(user=request.user, result_id=kwargs['result_id'])
+            favorite.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Favorites.DoesNotExist:
+            return Response({'error': 'Favorite not found'}, status=status.HTTP_404_NOT_FOUND)

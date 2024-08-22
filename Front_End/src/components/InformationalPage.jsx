@@ -48,11 +48,11 @@ const InformationalPage = ({ category }) => {
         <p>{data.description}</p>
           {/* Add more fields as needed */}
       </div>
-			<Button 
+			<button className="button"
         variant={isFavorite ? "danger" : "success"} 
         onClick={handleFavoriteButtonClick}>
           {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
-      </Button>
+      </button>
     </div>
   );
 };

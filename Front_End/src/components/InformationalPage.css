@@ -3,42 +3,91 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-image: url("./images/Hyperspace.gif");
+  height: 100vw;
+  width: auto;
+  background-image: url("./images/SpaceGifOneStar.gif");
   background-size:cover;
+  padding-top: 2vw;
 }
 
 .informational-page h1 {
-  width: 800px;
-  height: 80px;
+  width: 25vw;
+  height: 3.5vw;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight:bold;
   border-top: solid 2px;
   border-left: solid 2px;
   border-right: solid 2px;
   margin-bottom: 0;
+  margin-top: .5vw;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border-color: black;
-  background-color: #999;
+  border: solid rgba(255, 217, 0, 0.137) 4px;
+  background: linear-gradient(
+    45deg,
+    #555 5%,
+    #777 10%,
+    #888 30%,
+    #999 50%,
+    #ddd 70%,
+    #ddd 80%,
+    #999 95%
+  );
 }
 
 .informational-page img {
-  width: 800px;
+  width: 25vw;
   max-width: 100%;
-  border: solid 4px;
+  border: solid rgba(255, 217, 0, 0.137) 4px;
+  background: linear-gradient(
+    45deg,
+    #555 5%,
+    #777 10%,
+    #888 30%,
+    #999 50%,
+    #ddd 70%,
+    #ddd 80%,
+    #999 95%
+  );
 }
 
 .informational-page .info-box {
-  width: 800px;
+  width: 25vw;
   max-width: 100%;
   padding: 13px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: larger;
   font-weight: bolder;
-  border: 2px solid black;
+  border: solid rgba(255, 217, 0, 0.137) 4px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: #999;
+  background: linear-gradient(
+    45deg,
+    #555 5%,
+    #777 10%,
+    #888 30%,
+    #999 50%,
+    #ddd 70%,
+    #ddd 80%,
+    #999 95%
+  );
   text-align: left;
-  margin-bottom: 40px;
+  margin-bottom: 4px;
+}
+
+.informational-page .button {
+  margin-bottom: 1vw;
+  color: #222;
+  font-weight: bold;
+  border: solid rgba(255, 217, 0, 0.137) 4px;
+  background: linear-gradient(
+    45deg,
+    #555 5%,
+    #777 10%,
+    #888 30%,
+    #999 50%,
+    #ddd 70%,
+    #ddd 80%,
+    #999 95%
+  );
 }

@@ -1,26 +1,38 @@
 .background4 {
-  background-image: url("./images/Forest_Landscape.jpg");
+  background-image: url("./images/23350-9-star-wars-transparent.png");
+  background-color:#444;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width:100wv;
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: center;
   flex-direction: column;
-  padding: 2%;
+  padding: 0%;
   box-sizing: border-box;
 }
 
 .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  position: center;
+  align-items: center;
   background: #555;
   border: solid #444 4px; 
   color: red;
 }
 
-  .grid-item.inputs {
+.info-label {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  color:red;
+}
+
+.info-input .info-text-area {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -30,9 +42,98 @@
     margin: 20px;
     gap: 20px; /* Adjust the gap between cards as needed */
   }
+  .info-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
   
+  .save-button {
+    background-color: #28a74670;
+    color: white;
+  }
+  
+  .save-button:hover {
+    background-color: #218838;
+  }
+  
+  .cancel-button {
+    background-color: #dc35468f;
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333;
+  }
+  
+  .info-display {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  
+  .info-text1 {
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    width: 20vw;
+    margin-top: 5vw;
+    border: solid #444 3px;
+    border-radius: 6px;
+    background: aliceblue;
+  }
+
+  .info-text {
+    align-self: center;
+    text-align: center;
+
+    width: 20vw;
+    border: solid #444 3px;
+    border-radius: 6px;
+    background: aliceblue;
+  }
+  
+  .edit-button {
+    align-self: center;
+    margin-bottom: 6vw;
+    padding: 10px 10px;
+    width: 65px;
+    height: 40px;
+    border-radius: 5px;
+    border: #444;
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .edit-button:hover {
+    border: #222;
+    margin-bottom: 1vw;
+    background-color: #555;
+    color: #888;
+  }
+  
+  .fav {
+    text-align: center;
+    padding: 1vw;
+    width: 100%;
+    border: solid #555;
+    background-color: rgb(119, 119, 119, .7);
+  }
+
+  .none {
+    text-align: center;
+    font-weight: bold;
+    color: #222;
+    background-color: rgb(85, 85, 85, .8);
+
+  }
+
   .favorite-card {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    align-self: center; 
+    width: 40vw;
     border: solid #555;
     background: linear-gradient(
       30deg,
@@ -44,34 +145,52 @@
       #ddd 80%,
       #999 95%
     );
-    border-radius: 2px;
+    border-radius: 12px;
     background-color: rgba(153, 153, 153, 0.7); /* Translucent background */
+  }
+  .favorite-card .card-body {
+    border: solid rgba(153, 153, 153, 0.7) 5px;
   }
   
   .favorite-card .card-title {
     color: #111;
+    text-align: center;
     font-weight: bold;
-    border: solid #555 3px;
+    border: solid rgba(153, 153, 153, 0.7) 5px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    margin: 0;
   }
 
   .favorite-card .card-text {
     color:#222;
-    border: solid #555 3px;
+    border: solid rgba(153, 153, 153, 0.7) 5px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px; 
+    padding: .6vw;
   }
   .favorite-card .card-image {
-    height: 250px; /* Set the image height */
+    height: 25vw; /* Set the image height */
+    width: auto;
     object-fit: cover; /* Ensure the image covers the area */
-    border-radius: 0;
   }
   
   .favorite-card .btn-danger {
-    background-color: #666;
-    border-color: #d43f3a;
-    color: red;
+    margin-bottom: 1vw;
+    align-self: center;
+    color: #222;
+    font-weight: bold;
+    border: solid rgba(255, 217, 0, 0.137) 4px;
+    background: linear-gradient(
+      45deg,
+      #555 5%,
+      #777 10%,
+      #888 30%,
+      #999 50%,
+      #ddd 70%,
+      #ddd 80%,
+      #999 95%
+    );
   }
   
   .favorite-card .btn-danger:hover {

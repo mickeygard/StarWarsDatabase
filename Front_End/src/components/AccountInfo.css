@@ -12,27 +12,27 @@
   padding: 0%;
 }
 
-  .step-container {
+.step-container {
     margin-bottom: 20px;
     margin-top: 3vw;
     background-color: rgba(153, 153, 153, 0.7); /* Translucent background */
     border: solid #555;
     border-radius: 8px;
-    padding: 1vw;
+    padding: .5vw;
     width: 80vw;
-    height: 240px;
+    height: 20vw;
   }
   
-  .step-title {
+.step-title {
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 20px;
     color: #222;
   }
   
-  .step-input,
-  .step-select,
-  .step-textarea {
+.step-input,
+.step-select,
+.step-textarea {
     width: 90%;
     padding: 10px;
     margin-bottom: 20px;
@@ -40,12 +40,12 @@
     border: 2px solid #666;
   }
   
-  .button-container {
+.button-container {
     display: flex;
     justify-content: space-evenly;
   }
   
-  .step-button {
+.step-button {
     padding: 10px 20px;
     border-radius: 5px;
     border: #333;
@@ -54,25 +54,26 @@
     cursor: pointer;
   }
   
-  .step-button:hover {
+.step-button:hover {
     border: #111;
     background-color: #333;
     color: #666;
   }
   
-  .password-strength,
-  .username-taken,
-  .redirect-message {
+.password-strength,
+.username-taken,
+.redirect-message {
     text-align: center;
+    font-weight: bold;
     margin-bottom: 20px;
   }
   
-  .progress-container {
-    position: bottom;
+.progress-container {
+    position: middle;
     text-align: center;
     background: #888;
-    margin-top: -12px;
-    padding-bottom: 20px;
+    margin-top: 2px;
+    padding-bottom: 0px;
   }
   
   .progress-info {

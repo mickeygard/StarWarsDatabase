@@ -20,7 +20,7 @@
   background-color: rgba(153, 153, 153, 0.5);;
   position:relative;
   width: 95vw;
-  border: solid #444;
+  border: solid rgba(255, 217, 0, 0.137);
   border-radius: 8px;
 }
 
@@ -35,7 +35,7 @@
   padding: 1vw;
   margin: .5vw;
   text-align: center;
-  border: solid rgba(255, 136, 0, 0.555);
+  border: solid rgba(255, 217, 0, 0.137);
   background: linear-gradient(
     45deg,
     #555 5%,
@@ -70,14 +70,14 @@ cursor: pointer; */
 .item img {
   height: 6vw;
   width: 10vw;
-  border: solid #444 4px;
+  border: solid #ffc4003a 4px;
   border-radius: 4px;
 }
 
 .title {
   text-align: center;
   color: aliceblue;
-  border-bottom: solid #444 4px;
+  border-bottom: rgba(215, 217, 0, 0.137) 4px;
   background: rgb(119, 119, 119, .6);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size:xx-large;

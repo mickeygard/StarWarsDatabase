@@ -11,6 +11,7 @@ const FavoritesProvider = ({ children }) => {
     const fetchFavorites = async () => {
       try {
         const response = await axiosInstance.get('profile/favorites/');
+        console.log('Fetched favorites:', response.data);
         setFavorites(response.data);
       } catch (error) {
         console.error('Failed to fetch favorites', error);
@@ -41,12 +42,13 @@ const FavoritesProvider = ({ children }) => {
     }
   };
 
-  const removeFromFavorites = async (resource) => {
+  const removeFromFavorites = async (id) => {
     try {
-      await axiosInstance.delete(`profile/favorites/delete/${resource._id}/`);
-      setFavorites(favorites.filter((r) => r.result_id !== resource.result_id));
+      console.log('Removing favorite with id:', id);
+      await axiosInstance.delete(`profile/favorites/delete/${id}/`);
+      setFavorites(favorites.filter((r) => r.id !== id));
     } catch (error) {
-      console.error('Failed to remove from favorites', error);
+      console.error('Failed to remove from favorites', error, error.response ? error.response.data : error.message);
     }
   };
 

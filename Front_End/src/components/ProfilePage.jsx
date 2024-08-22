@@ -52,10 +52,11 @@ const ProfilePage = () => {
     }
   };
 
-  const handleRemoveFavorite = async (favoriteId) => {
+  const handleRemoveFavorite = async (id) => {
     try {
-      await axiosInstance.delete(`profile/favorites/delete/${favoriteId}/`);
-      setFavorites(favorites.filter(fav => fav.result_id !== favoriteId));
+      console.log('Removing favorite with result_id:', id);
+      await axiosInstance.delete(`profile/favorites/delete/${id}/`);
+      setFavorites(favorites.filter(fav => fav.id !== id));
     } catch (error) {
       console.error('Failed to remove favorite', error, error.response ? error.response.data : error.message);
     }
@@ -67,32 +68,34 @@ const ProfilePage = () => {
 
   return (
     <div className="background4">
-      <h2>{profile.username?.username}</h2>
-      {editing ? (
-        <div class="info">
-          <label>
+      <h2 className="profile-username">{profile.username?.username}</h2>
+        {editing ? (
+        <div className="info">
+          <label className="info-label">
             Organization:
-            <input type="text" value={alignment} onChange={(e) => setAlignment(e.target.value)} />
+            <input type="text" value={alignment} onChange={(e) => setAlignment(e.target.value)} className="info-input" />
           </label>
-          <label>
+          <label className="info-label">
             About Me:
-            <textarea value={bio} onChange={(e) => setBio(e.target.value)} />
+            <textarea value={bio} onChange={(e) => setBio(e.target.value)} className="info-textarea" />
           </label>
-          <button onClick={handleSave}>Save</button>
-          <button onClick={() => setEditing(false)}>Cancel</button>
+          <button onClick={handleSave} className="info-button save-button">Save</button>
+          <button onClick={() => setEditing(false)} className="info-button cancel-button">Cancel</button>
         </div>
-      ) : (
-        <div>
-          <p>Organization: {profile.alignment}</p>
-          <p>About Me: {profile.bio}</p>
-          <button onClick={() => setEditing(true)}>Edit</button>
+        ) : (
+        <div className="info-display">
+          <p className="info-text1">Organization:</p>
+          <p className="info-text">{profile.alignment}</p>
+          <p className="info-text1">About Me:</p>
+          <p className="info-text">{profile.bio}</p>
+          <button onClick={() => setEditing(true)} className="info-button edit-button">Edit</button>
         </div>
-      )}
-          <h2>Favorites</h2>
+        )}
+          <h2 className="fav">Favorites</h2>
           <div className="grid-item inputs">
             {favorites && favorites.length > 0 ? (
               favorites.map((favorite) => (
-                <Card key={favorite.result_id} className="favorite-card">
+                <Card key={favorite.result_id || favorite.id} className="favorite-card">
                   <Card.Body>
                     <Card.Title>{favorite.name || favorite.result_name}</Card.Title>
                       <Card.Img 
@@ -102,14 +105,14 @@ const ProfilePage = () => {
                         onError={(e) => e.target.src = 'default-image-url.jpg'} 
                       />
                       <Card.Text>{favorite.description || favorite.result_description}</Card.Text>
-                      <Button variant="danger" onClick={() => handleRemoveFavorite(favorite.result_id)}>
+                      <Button variant="danger" onClick={() => handleRemoveFavorite(favorite.id)}>
                         Remove
                       </Button>
                   </Card.Body>
                 </Card>
               ))
           ) : (
-            <p>Your vault is currently empty. Good Hunting.</p>
+            <p className="none">Your vault is currently empty. Good Hunting.</p>
           )}
         </div>
       </div>

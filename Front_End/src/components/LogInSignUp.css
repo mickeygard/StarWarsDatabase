@@ -24,7 +24,6 @@
   display: flex;
   flex-direction: column;
   padding-top: 2vw;
-  padding-left: ;
   gap: 10px; /* Adjust the gap between inputs as needed */
 }
 
@@ -45,7 +44,7 @@
 .buttons button {
   margin: 10px 10px;
   width: 5vw;
-  height: 1.5vw;
+  height: 2vw;
   color: #222;
   background-color: #999;
   border: solid #222 3px;

@@ -1,14 +1,13 @@
 /* NavigationBar.css */
 .navbar {
-  height:12vw;
+  height:9vw;
   padding: none;
 }
 .background0 {
   background-image: url("./images/Wide_background.jpg");
   background-size: cover;
   border-bottom: solid #444 8px;
-  border-top: solid #444 8px;
-  height: 12vw;
+  height: 10vw;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -22,14 +21,14 @@
   grid-template-rows: auto auto; /* Create two rows */
   width: 100%; /* Cover the width of the screen */
   justify-items: center; /* Center the content horizontally */
-  gap: 1.5vw; /* Adjust the gap between rows as needed */
+  gap: 1vw; /* Adjust the gap between rows as needed */
 }
 
 .buttons0 {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Create 5 equal columns for buttons */
   width: 100%;
-  gap: 10px; /* Adjust the gap between buttons as needed */
+  gap: 1vw; /* Adjust the gap between buttons as needed */
 }
 
 .grid-item0 {
@@ -38,13 +37,17 @@
   background-color: rgba(100 100 100 .1) ; /* Remove any background color */
 }
 
+.grid-item0 .h1 {
+  padding-top: 1vw;
+ }
+
 .nav {
   background-color: #111;
   background-size: cover;
 }
 
 .grid-item .btn {
-  margin: 10px 10px;
+  margin: 1vw 1vw;
   color: aliceblue;
   background-color: #999;
   border-color: #444;
