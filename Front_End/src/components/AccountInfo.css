@@ -14,13 +14,13 @@
 
   .step-container {
     margin-bottom: 20px;
-    margin-top: 10vw;
+    margin-top: 3vw;
     background-color: rgba(153, 153, 153, 0.7); /* Translucent background */
     border: solid #555;
     border-radius: 8px;
-    padding: 20px;
+    padding: 1vw;
     width: 80vw;
-    height: 14vw;
+    height: 240px;
   }
   
   .step-title {
@@ -68,9 +68,11 @@
   }
   
   .progress-container {
+    position: bottom;
     text-align: center;
     background: #888;
-    margin-top: 20px;
+    margin-top: -12px;
+    padding-bottom: 20px;
   }
   
   .progress-info {
@@ -79,5 +81,4 @@
   
   .progress-bar {
     width: 100%;
-    
   }

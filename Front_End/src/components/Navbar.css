@@ -1,15 +1,20 @@
 /* NavigationBar.css */
-
+.navbar {
+  height:12vw;
+  padding: none;
+}
 .background0 {
   background-image: url("./images/Wide_background.jpg");
   background-size: cover;
-  border: solid #444 8px;
-  height: auto;
+  border-bottom: solid #444 8px;
+  border-top: solid #444 8px;
+  height: 12vw;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  padding: none;
 }
 
 .grid-container0 {
@@ -17,7 +22,7 @@
   grid-template-rows: auto auto; /* Create two rows */
   width: 100%; /* Cover the width of the screen */
   justify-items: center; /* Center the content horizontally */
-  gap: 20px; /* Adjust the gap between rows as needed */
+  gap: 1.5vw; /* Adjust the gap between rows as needed */
 }
 
 .buttons0 {

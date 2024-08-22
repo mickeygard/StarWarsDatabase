@@ -4,12 +4,12 @@
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  width: auto;
+  height: 100vw;
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: center;
-  padding: 2%;
+  padding: 0%;
 
 }.grid-container2 {
   display: grid;
@@ -23,7 +23,8 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  margin-top: 5%;
+  padding-top: 2vw;
+  padding-left: ;
   gap: 10px; /* Adjust the gap between inputs as needed */
 }
 
@@ -34,18 +35,25 @@
   background: aliceblue;
 }
 
+.buttons {
+ padding-left: 3vw;
+ padding-right: 3vw;
+ 
+ justify-items: center;
+}
+
 .buttons button {
   margin: 10px 10px;
   width: 5vw;
-  height: 2vw;
-  color: #666;
+  height: 1.5vw;
+  color: #222;
   background-color: #999;
-  border: solid #444 3px;
+  border: solid #222 3px;
   border-radius: 8px;
 }
 
 .buttons button:hover {
-  color: #777;
+  color: #000;
   background-color: #555;
-  border-color: #222;
+  border-color: #000;
 }
