@@ -1,0 +1,72 @@
+/* HomePage.css */
+.background2 {
+  background-image: url("src/components/images/4lanscapes.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: auto auto; /* Create two rows */
+  gap: 0px; /* Adjust the gap between rows as needed */
+  width: 75%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the grid container */
+}
+
+.box {
+  background-color: rgba(128, 128, 128, 0.7); /* Gray with 50% transparency */
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid #555;
+  margin-top: 1%;
+  margin-bottom: 0%;
+  margin-left: 3%;
+  margin-right:3%;
+  text-align: center;
+}
+
+.scrollable-box {
+  max-height: 70vh; /* Adjust the max height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Custom scrollbar styles */
+.scrollable-box::-webkit-scrollbar {
+  width: 15px; /* Width of the scrollbar */
+}
+
+.scrollable-box::-webkit-scrollbar-track {
+  background: #555; /* gray background */
+}
+
+.scrollable-box::-webkit-scrollbar-thumb {
+  background: #222; /* scroll box */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.scrollable-box::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker gray on hover */
+}
+
+.scrollable-box::-webkit-scrollbar-button {
+  background: #222; /* Black arrows */
+  height: 18px; /* Height of the arrows */
+}
+
+.scrollable-box::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="dark-gray"><polygon points="6,0 12,12 0,12"/></svg>') no-repeat center center;
+}
+
+.scrollable-box::-webkit-scrollbar-button:single-button:vertical:increment {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="black"><polygon points="0,0 12,0 6,12"/></svg>') no-repeat center center;
+}

@@ -39,45 +39,35 @@ function MyNavBar() {
 
 
   return (
-<Navbar expand="lg" className="bg-body-tertiary">
-  <Container>
-    <Row className="w-100">
-      <Col xs={12} className="text-center">
-        <h1>Star Wars Database</h1>
-        </Col>
-      </Row>
-      <Row className="w-100 mt-3 nav-buttons">
-        <Col xs={12} className="text-center">
-          <Button as={Link} to="/" variant="primary" className="m-2">
-          Home</Button>
-          <Button as={Link} to="/vault" variant="primary" className="m-2">
-          The Vault</Button>
-          <Button as={Link} to="/profilepage" variant="primary" className="m-2">
-          Profile</Button>
-          <Button as={Link} to="/loginsignup" variant="primary" className="m-2">
-          Log In / Sign Up</Button>
-          <Button onClick={handleLogout} variant="primary" className="m-2">
-          Logout</Button>
-        </Col>
-      </Row>
-      <Row className="w-100 mt-3 nav-buttons">
-        <Col xs={12}>
-          <Form onSubmit={handleSearch} className="d-flex justify-content-end">
-            <FormControl
-              type="text"
-              placeholder="Good Hunting"
-              className="mr-sm-2"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <Button type="submit" variant="outline-success" id="search-button" 
-            data-testid="search-button">Search</Button>
-          </Form>
-        </Col>
-      </Row>
-  </Container>
-</Navbar>
-);
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <div className="background0">
+        <Container>
+        <div className="grid-container0">
+          <div className="grid-item0">
+            <h1>Star Wars Database</h1>
+          </div>
+          <div className="grid-item buttons0">
+            <Button as={Link} to="/" variant="primary" className="m-2 home-button">
+            Home
+            </Button>
+            <Button as={Link} to="/vault" variant="primary" className="m-2 vault-button">
+            The Vault
+            </Button>
+            <Button as={Link} to="/profilepage" variant="primary" className="m-2 profile-button">
+            Profile
+            </Button>
+            <Button as={Link} to="/loginsignup" variant="primary" className="m-2 login-button">
+            Log In / Sign Up
+            </Button>
+            <Button onClick={handleLogout} variant="primary" className="m-2 logout-button">
+            Logout
+            </Button>
+          </div>
+        </div>
+        </Container>
+      </div>
+    </Navbar>
+  );
 }
 
 export default MyNavBar;

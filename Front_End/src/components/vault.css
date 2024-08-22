@@ -1,50 +1,90 @@
-.vault {
-  padding: 20px;
-  background-image: url("./images/Coruscant.jpg");
-  background-size:cover;
+.background3 {
+  padding: 1%;
+  background-image: url("./images/Jawa_Sandcrawler.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .category {
-  margin-bottom: 20px;
-  background-color: #999;
+  margin-bottom: .2%;
+  margin-right: 3%;
+  margin-left:3%;
+  background-color: rgba(153, 153, 153, 0.5);;
   position:relative;
+  width: 95vw;
+  border: solid #444;
+  border-radius: 8px;
 }
 
 .scrolling-row {
   display: flex;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  padding: .5vw;
 }
 
 .item {
-  margin-right: 10px;
+  padding: 1vw;
+  margin: .5vw;
+  text-align: center;
+  border: solid rgba(255, 136, 0, 0.555);
+  background: linear-gradient(
+    45deg,
+    #555 5%,
+    #777 10%,
+    #888 30%,
+    #999 50%,
+    #ddd 70%,
+    #ddd 80%,
+    #999 95%
+  );
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 14%;
+  height: 15%;
   cursor: pointer;
 }
+/* 
+padding: 1vw;
+margin: .5vw;
+text-align: center;
+border: solid #555;
+background-color: rgba(140, 140, 140, 140);
+border-radius: 8px;
+color: #333;
+width: 14%;
+height: 15%;
+cursor: pointer; */
 
 .item img {
-  height:100px;
-  border-radius: 5px;
-  margin-left:10px;
-
-}
-
-.item p {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: bold;
-  border: 5px;
-  border-color: black;
-  text-align: center;
+  height: 6vw;
+  width: 10vw;
+  border: solid #444 4px;
+  border-radius: 4px;
 }
 
 .title {
   text-align: center;
-  color:white;
-  background-color:#444;
+  color: aliceblue;
+  border-bottom: solid #444 4px;
+  background: rgb(119, 119, 119, .6);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size:xx-large;
-  margin-top: 15px;
-  margin-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
+
 .arrow {
   position: absolute;
   top: 50%;
@@ -56,7 +96,7 @@
   padding: 5px 10px 5px 10px;
   margin: 2px;
   z-index: 1;
-  border-radius: 35%;
+  border-radius: 25%;
 }
 
 .arrow-left {

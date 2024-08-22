@@ -1,5 +1,5 @@
-.background4 {
-  background-image: url("./images/Forest_Landscape.jpg");
+.background5 {
+  background-image: url("./images/Star_Wars_Characters.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
   padding: 2%;
-  box-sizing: border-box;
 
 }.grid-container2 {
   display: grid;
@@ -30,25 +29,23 @@
 
 .inputs input {
   padding: 1%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: columns;
-  gap: .2%; /* Adjust the gap between buttons as needed */
+  border-radius: 4px;
+  border: solid #222 1px;
+  background: aliceblue;
 }
 
 .buttons button {
   margin: 10px 10px;
-  color: aliceblue;
+  width: 5vw;
+  height: 2vw;
+  color: #666;
   background-color: #999;
-  border-color: #444;
+  border: solid #444 3px;
+  border-radius: 8px;
 }
 
 .buttons button:hover {
   color: #777;
-  background-color: #444;
+  background-color: #555;
   border-color: #222;
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from './api/axios';
 import axios from 'axios';
+import "./ProfilePage.css"
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
@@ -64,7 +65,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div>
+    <div className="background4">
       <h1>{profile.username?.username}</h1>
       {editing ? (
         <div>
@@ -86,18 +87,9 @@ const ProfilePage = () => {
           <button onClick={() => setEditing(true)}>Edit</button>
         </div>
       )}
-      {/* <div>
         <h2>Favorites</h2>
-        {favorites && favorites.length > 0 ? (
-          favorites.map((favorite) => (
-            <div key={favorite.id}>
-              <h3>{favorite.name}</h3>
-              <p>{favorite.description}</p>
-              <img src={favorite.image} alt={favorite.name}/>
-              <button onClick={() => handleRemoveFavorite(favorite.id)}>Remove Favorite</button>
-            </div> */}
-          <div>
-            <h2>Favorites</h2>
+          <div classname="grid-container2">
+            <div className="grid-item inputs">
               {favorites && favorites.length > 0 ? (
               favorites.map((favorite) => (
               <div key={favorite.result_id}>
@@ -106,12 +98,13 @@ const ProfilePage = () => {
                 <img src={favorite.image || favorite.result_image} alt={favorite.name || favorite.result_name} 
                 onError={(e) => e.target.src = 'default-image-url.jpg'} />
                 <button onClick={() => handleRemoveFavorite(favorite.result_id)}>Remove</button>
-              </div>
-          ))
-        ) : (
-          <p>Your vault is currently empty. Good Hunting.</p>
-        )}
-      </div>
+              </div> 
+            ))
+          ) : (
+            <p>Your vault is currently empty. Good Hunting.</p>
+          )}
+        </div>
+      </div> 
     </div>
   );
 };

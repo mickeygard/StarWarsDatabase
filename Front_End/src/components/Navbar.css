@@ -1,24 +1,52 @@
 /* NavigationBar.css */
-.nav {
+
+.background0 {
   background-image: url("./images/Wide_background.jpg");
-  background-size:cover;
-}
-
-.nav-buttons {
+  background-size: cover;
+  border: solid #444 8px;
+  height: auto;
+  width: 100vw;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  box-sizing: border-box;
 }
 
-.nav-buttons .btn {
-  margin: 0 10px;
+.grid-container0 {
+  display: grid;
+  grid-template-rows: auto auto; /* Create two rows */
+  width: 100%; /* Cover the width of the screen */
+  justify-items: center; /* Center the content horizontally */
+  gap: 20px; /* Adjust the gap between rows as needed */
+}
+
+.buttons0 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Create 5 equal columns for buttons */
+  width: 100%;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
+.grid-item0 {
+  text-align: center; /* Center the title text */
+  color: aliceblue; /* Set the title text color */
+  background-color: rgba(100 100 100 .1) ; /* Remove any background color */
+}
+
+.nav {
+  background-color: #111;
+  background-size: cover;
+}
+
+.grid-item .btn {
+  margin: 10px 10px;
   color: aliceblue;
   background-color: #999;
   border-color: #444;
 }
 
-.nav-buttons .btn:hover {
-  color:#777;
+.grid-item .btn:hover {
+  color: #777;
   background-color: #444;
-  border-color: #222
+  border-color: #222;
 }

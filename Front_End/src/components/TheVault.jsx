@@ -140,6 +140,7 @@ const Vault = () => {
 
 
         return (
+            <div className="background3">
             <div className="category">
                 <div className="title">{title}</div>
                 <button className="arrow arrow-left" onClick={() => scrollLeft(rowRef)}>&lt;</button>
@@ -156,6 +157,7 @@ const Vault = () => {
                 </div>
                 <button className="arrow arrow-right" onClick={() => scrollRight(rowRef)}>&gt;
                 </button>
+            </div>
             </div>
         );
     };
